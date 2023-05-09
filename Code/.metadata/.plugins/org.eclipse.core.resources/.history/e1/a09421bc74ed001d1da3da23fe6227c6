@@ -1,0 +1,24 @@
+/*
+ * main.c
+ *
+ *  Created on: May 8, 2023
+ *      Author: Anwar
+ */
+
+#include "Led.h"
+#include "Button.h"
+
+int main(int argc, char **argv) {
+	LED_Init(GPIO_A, 2);
+	BUTTON_Init(GPIO_A, 5);
+	uint8 ledState = LED_ON;
+	while(1){
+		if (BUTTON_ReadState(GPIO_A, 5) == BUTTON_PRESSED) {
+			LED_Activate(GPIO_A, 2, ledState);
+		}
+	}
+}
+
+
+
+

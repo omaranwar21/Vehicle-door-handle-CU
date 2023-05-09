@@ -1,0 +1,27 @@
+/*
+ * Led.c
+ *
+ *  Created on: May 8, 2023
+ *      Author: Anwar
+ */
+
+#include "Led.h"
+
+void LED_Init(uint8 portName, uint8 pinNum){
+	Gpio_ConfigPin(portName, portName, GPIO_OUTPUT, GPIO_PUSH_PULL, GPIO_NO_PULL_UP_DOWN);
+	GPIO_WritePinValue(portName, pinNum, LED_OFF);
+}
+
+void LED_On(uint8 portName, uint8 pinNum){
+	GPIO_WritePinValue(portName, pinNum, LED_ON);
+}
+
+void LED_Off(uint8 portName, uint8 pinNum){
+	GPIO_WritePinValue(portName, pinNum, LED_OFF);
+}
+
+void LED_Toggle(uint8 portName, uint8 pinNum){
+
+}
+
+

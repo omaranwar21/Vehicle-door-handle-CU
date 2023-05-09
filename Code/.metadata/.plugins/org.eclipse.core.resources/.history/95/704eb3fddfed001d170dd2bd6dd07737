@@ -1,0 +1,60 @@
+/*
+ * ====================================================================================================================================
+ *  * Lab - 04_1 Gpio Driver
+ * 	Gpio.h
+ *	Name : Omar Ahmed Anwar Mansour
+ *  Section: 2
+ *  B.N: 2
+ *  ===================================================================================================================================
+ */
+
+#ifndef GPIO_H
+#define GPIO_H
+#include "Std_Types.h"
+#include "Gpio_Private.h"
+
+/*PortName*/
+#define GPIO_A 'A'
+#define GPIO_B 'B'
+#define GPIO_C 'C'
+#define GPIO_D 'D'
+
+#define GPIO_DATA_TRUE_STATE	0
+
+/*PinMode*/
+typedef enum{
+   GPIO_INPUT, GPIO_OUTPUT, GPIO_AF, GPIO_ANALOG 
+}Gpio_PinMode;
+
+/*DefaultState*/
+typedef enum{
+   GPIO_PUSH_PULL, GPIO_OPEN_DRAIN 
+}Gpio_DefaultState;
+
+/*Data*/
+typedef enum{
+   LOW, HIGH 
+}Gpio_Data;
+
+/*Flag*/
+typedef enum{
+    NOK, OK
+}Flag;
+
+
+/*Pull up, Pull down*/
+typedef enum{
+	GPIO_NO_PULL_UP_DOWN, GPIO_PULL_UP, GPIO_PULL_DOWN, GPIO_RESERVED
+}GPIO_PullState;
+
+
+void Gpio_ConfigPin(uint8 PortName, uint8 PinNum, uint8 PinMode, uint8 DefaultState, uint8 pullState);
+
+
+uint8 GPIO_WritePinValue(uint8 PortName, uint8 PinNum, uint8 Data);
+
+
+uint8 GPIO_ReadPinState(uint8 PortName, uint8 PinNum);
+
+
+#endif /* GPIO_H */

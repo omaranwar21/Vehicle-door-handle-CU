@@ -1,0 +1,43 @@
+/*
+ * main.c
+ *
+ *  Created on: May 8, 2023
+ *      Author: Anwar
+ */
+
+#include "Led.h"
+#include "Button.h"
+#include "Rcc.h"
+
+int main(int argc, char **argv) {
+	Rcc_Init();
+	Rcc_Enable(RCC_GPIOA);
+	Rcc_Enable(RCC_GPIOB);
+
+	LED_Init(GPIO_A, 2);
+	LED_Init(GPIO_A, 4);
+	LED_Init(GPIO_A, 6);
+
+	BUTTON_Init(GPIO_B, 5);
+	BUTTON_Init(GPIO_B, 8);
+	uint8 ledState1 = LED_OFF;
+	uint8 ledState2 = LED_OFF;
+	uint8 ledState3 = LED_ON;
+	while(1){
+		if (BUTTON_ReadState(GPIO_B, 5) == BUTTON_PRESSED) {
+			ledState1 = !ledState1;
+			LED_Activate(GPIO_A, 2, ledState1);
+		}
+		if (BUTTON_ReadState(GPIO_B, 8) == BUTTON_PRESSED) {
+			ledState2 = !ledState2;
+			ledState3 = !ledState3;
+			LED_Activate(GPIO_A, 2, ledState);
+		}
+	}
+
+	return 0;
+}
+
+
+
+

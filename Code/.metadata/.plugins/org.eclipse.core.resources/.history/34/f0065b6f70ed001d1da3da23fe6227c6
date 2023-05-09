@@ -1,0 +1,69 @@
+/*
+ * ====================================================================================================================================
+ *  * Lab - 04_1 Gpio Driver
+ * 	Gpio.c
+ *	Name : Omar Ahmed Anwar Mansour
+ *  Section: 2
+ *  B.N: 2
+ *  ===================================================================================================================================
+ */
+
+#include "Gpio.h"
+
+#include "Utils.h"
+
+
+uint32 gpioAddresses[4] = {GPIOA_BASE_ADDR, GPIOB_BASE_ADDR, GPIOC_BASE_ADDR, GPIOD_BASE_ADDR};
+
+void Gpio_ConfigPin(uint8 PortName, uint8 PinNum, uint8 PinMode,
+                    uint8 DefaultState, uint8 pullState) {
+
+	uint8 portID = PortName - GPIO_A;
+
+	uint32 *gpioModerReg = REG32_ADDRESS(GPIOx_MODER, gpioAddresses[portID]);
+	uint32 *gpioOutputTypeReg = REG32_ADDRESS(GPIOx_OTYPER, gpioAddresses[portID]);
+	uint32 *gpioPullUpDownReg = REG32_ADDRESS(GPIOx_PUPDR, gpioAddresses[portID]);
+
+	*gpioModerReg &= ~(0x03 << (PinNum * 2));
+	*gpioModerReg |= (PinMode << (PinNum * 2));
+
+	*gpioOutputTypeReg &= ~(0x01 << PinNum);
+	*gpioOutputTypeReg |= (DefaultState << PinNum);
+
+	*gpioPullUpDownReg &= ~(0x03 << (PinNum * 2));
+    *gpioPullUpDownReg |= (pullState << (PinNum * 2));
+}
+
+uint8 GPIO_WritePinValue(uint8 PortName, uint8 PinNum, uint8 Data) {
+
+	uint8 portID = PortName - GPIO_A;
+
+	uint32 *gpioModerReg = REG32_ADDRESS(GPIOx_MODER, gpioAddresses[portID]);
+	uint32 *gpioOutputDataReg = REG32_ADDRESS(GPIOx_ODR, gpioAddresses[portID]);
+
+	if ((*gpioModerReg & (0x03 << (PinNum * 2))) >> (PinNum*2) != GPIO_OUTPUT)
+	{
+		return NOK;
+	}
+
+	*gpioOutputDataReg &= ~(0x1 << PinNum);
+	*gpioOutputDataReg |= (Data << PinNum);
+
+	return OK;
+}
+
+uint8 Gpio_ReadPin(uint8 PortName, uint8 PinNum){
+
+  uint8 portID = PortName - GPIO_A;
+
+  uint32 *gpioOutputDataReg = REG32_ADDRESS(GPIOx_IDR, gpioAddresses[portID]);
+
+  uint8 data = (*gpioOutputDataReg & (1 << PinNum))? 1 : 0;
+
+  return data;
+}
+
+
+
+
+

@@ -1,0 +1,32 @@
+/*
+ * Button.c
+ *
+ *  Created on: May 8, 2023
+ *      Author: Anwar
+ */
+
+
+#include "Button.h"
+
+uint8 holdingButtonFlag;
+
+void BUTTON_Init(uint8 portName, uint8 pinNum){
+	holdingButtonFlag = BUTTON_PRESSED
+	Gpio_ConfigPin(portName, pinNum, GPIO_INPUT, GPIO_PUSH_PULL, GPIO_PULL_UP);
+}
+
+uint8 BUTTON_ReadState(uint8 portName, uint8 pinNum){
+	if (GPIO_ReadPinState(portName, pinNum)	== BUTTON_PRESSED ) {
+
+		delay_ms(30); 	//Debouncing
+
+		if ( (GPIO_ReadPinState(portName, pinNum) == BUTTON_PRESSED) && (holdingButtonFlag == BUTTON_PRESSED) ) {
+			holdingButtonFlag = BUTTON_RELEASED;
+			return BUTTON_PRESSED;
+		}
+	}else {
+		holdingButtonFlag = BUTTON_PRESSED;
+	}
+	return BUTTON_RELEASED;
+}
+

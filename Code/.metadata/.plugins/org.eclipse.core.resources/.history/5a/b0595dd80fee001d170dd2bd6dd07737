@@ -1,0 +1,23 @@
+/*
+ * VehicleDoorHandle.c
+ *
+ *  Created on: May 9, 2023
+ *      Author: Anwar
+ */
+#include "VehicleDoorHandle.h"
+
+void VDH_defaultState(void){
+	Rcc_Init();
+	Rcc_Enable(RCC_GPIOA);
+	Rcc_Enable(RCC_GPIOB);
+
+	LED_Init(GPIO_A, 2);
+	LED_Init(GPIO_A, 4);
+	LED_Init(GPIO_A, 6);
+
+	BUTTON_Init(GPIO_B, 5);
+	BUTTON_Init(GPIO_B, 8);
+}
+
+
+

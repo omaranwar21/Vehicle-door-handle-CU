@@ -1,0 +1,69 @@
+/*
+ * ====================================================================================================================================
+ *  * Lab - 04_1 Gpio Driver
+ * 	Gpio.c
+ *	Name : Omar Ahmed Anwar Mansour
+ *  Section: 2
+ *  B.N: 2
+ *  ===================================================================================================================================
+ */
+
+#include "Gpio.h"
+
+#include "Utils.h"
+
+
+uint32 gpioAddresses[4] = {GPIOA_BASE_ADDR, GPIOB_BASE_ADDR, GPIOC_BASE_ADDR, GPIOD_BASE_ADDR};
+
+void Gpio_ConfigPin(uint8 PortName, uint8 PinNum, Gpio_PinMode PinMode,
+		Gpio_DefaultState DefaultState, Gpio_PullState pullState) {
+
+	uint8 portID = PortName - GPIO_A;
+
+	uint32 *gpioModerReg = REG32_ADDRESS(GPIOx_MODER, gpioAddresses[portID]);
+	uint32 *gpioOutputTypeReg = REG32_ADDRESS(GPIOx_OTYPER, gpioAddresses[portID]);
+	uint32 *gpioPullUpDownReg = REG32_ADDRESS(GPIOx_PUPDR, gpioAddresses[portID]);
+
+	*gpioModerReg &= ~(0x03 << (PinNum * 2));
+	*gpioModerReg |= (PinMode << (PinNum * 2));
+
+	*gpioOutputTypeReg &= ~(0x01 << PinNum);
+	*gpioOutputTypeReg |= (DefaultState << PinNum);
+
+	*gpioPullUpDownReg &= ~(0x03 << (PinNum * 2));
+    *gpioPullUpDownReg |= (pullState << (PinNum * 2));
+}
+
+Gpio_WriteDataFlag GPIO_WritePinValue(uint8 PortName, uint8 PinNum, Gpio_Data Data) {
+
+	uint8 portID = PortName - GPIO_A;
+
+	uint32 *gpioModerReg = REG32_ADDRESS(GPIOx_MODER, gpioAddresses[portID]);
+	uint32 *gpioOutputDataReg = REG32_ADDRESS(GPIOx_ODR, gpioAddresses[portID]);
+
+	if ((*gpioModerReg & (0x03 << (PinNum * 2))) >> (PinNum*2) != GPIO_OUTPUT)
+	{
+		return NOK;
+	}
+
+	*gpioOutputDataReg &= ~(0x1 << PinNum);
+	*gpioOutputDataReg |= (Data << PinNum);
+
+	return OK;
+}
+
+Gpio_Data GPIO_ReadPinState(uint8 PortName, uint8 PinNum){
+
+  uint8 portID = PortName - GPIO_A;
+
+  uint32 *gpioInputDataReg = REG32_ADDRESS(GPIOx_IDR, gpioAddresses[portID]);
+
+  uint8 data = (*gpioInputDataReg & (1 << PinNum))? GPIO_DATA_RISING : GPIO_DATA_RISINGFALLING;
+
+  return data;
+}
+
+
+
+
+

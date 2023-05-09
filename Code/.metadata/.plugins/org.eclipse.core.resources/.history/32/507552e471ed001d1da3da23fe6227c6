@@ -1,0 +1,21 @@
+/*
+ * Button.h
+ *
+ *  Created on: May 8, 2023
+ *      Author: Anwar
+ */
+
+#ifndef BUTTON_H_
+#define BUTTON_H_
+
+#include "Gpio.h"
+
+void BUTTON_Init(uint8 portName, uint8 pinNum);
+
+uint8 BUTTON_ReadState(uint8 portName, uint8 pinNum);
+
+void LED_Off(uint8 portName, uint8 pinNum);
+
+
+
+#endif /* BUTTON_H_ */
