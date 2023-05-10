@@ -15,16 +15,20 @@
 #define GPIOB_BASE_ADDR		0x40020400
 #define GPIOC_BASE_ADDR		0x40020800
 #define GPIOD_BASE_ADDR		0x40020C00
+#define GPIOE_BASE_ADDR		0x40021000
 
-#define GPIOx_MODER			0x00
-#define GPIOx_OTYPER		0x04
-#define GPIOx_OSPEEDR		0x08
-#define GPIOx_PUPDR			0x0C
-#define GPIOx_IDR			0x10
-#define GPIOx_ODR			0x14
-#define GPIOx_BSRR			0x18
-#define GPIOx_LCKR			0x1C
-#define GPIOx_AFRL			0x20
-#define GPIOx_AFRH			0x24
+typedef struct{
+	uint32 GPIOx_MODER;
+	uint32 GPIOx_OTYPER;
+	uint32 GPIOx_OSPEEDR;
+	uint32 GPIOx_PUPDR;
+	uint32 GPIOx_IDR;
+	uint32 GPIOx_ODR;
+	uint32 GPIOx_BSRR;
+	uint32 GPIOx_LCKR;
+	uint32 GPIOx_AFRL;
+	uint32 GPIOx_AFRH;
+}GPIO_Reg;
+
 
 #endif /* GPIO_PRIVATE_H */

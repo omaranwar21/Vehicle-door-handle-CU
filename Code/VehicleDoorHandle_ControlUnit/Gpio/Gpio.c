@@ -13,41 +13,39 @@
 #include "Utils.h"
 
 
-uint32 gpioAddresses[4] = {GPIOA_BASE_ADDR, GPIOB_BASE_ADDR, GPIOC_BASE_ADDR, GPIOD_BASE_ADDR};
+uint32 gpioAddresses[5] = {GPIOA_BASE_ADDR, GPIOB_BASE_ADDR, GPIOC_BASE_ADDR, GPIOD_BASE_ADDR, GPIOE_BASE_ADDR};
 
 void Gpio_ConfigPin(uint8 PortName, uint8 PinNum, Gpio_PinMode PinMode,
 		Gpio_DefaultState DefaultState, Gpio_PullState pullState) {
 
 	uint8 portID = PortName - GPIO_A;
 
-	uint32 *gpioModerReg = REG32_ADDRESS(GPIOx_MODER, gpioAddresses[portID]);
-	uint32 *gpioOutputTypeReg = REG32_ADDRESS(GPIOx_OTYPER, gpioAddresses[portID]);
-	uint32 *gpioPullUpDownReg = REG32_ADDRESS(GPIOx_PUPDR, gpioAddresses[portID]);
+	GPIO_Reg *GPIO_Port = (GPIO_Reg *)gpioAddresses[portID];
 
-	*gpioModerReg &= ~(0x03 << (PinNum * 2));
-	*gpioModerReg |= (PinMode << (PinNum * 2));
+	GPIO_Port->GPIOx_MODER &= ~(0x03 << (PinNum * 2));
+	GPIO_Port->GPIOx_MODER |= (PinMode << (PinNum * 2));
 
-	*gpioOutputTypeReg &= ~(0x01 << PinNum);
-	*gpioOutputTypeReg |= (DefaultState << PinNum);
+	GPIO_Port->GPIOx_OTYPER &= ~(0x01 << PinNum);
+	GPIO_Port->GPIOx_OTYPER |= (DefaultState << PinNum);
 
-	*gpioPullUpDownReg &= ~(0x03 << (PinNum * 2));
-    *gpioPullUpDownReg |= (pullState << (PinNum * 2));
+	GPIO_Port->GPIOx_PUPDR &= ~(0x03 << (PinNum * 2));
+	GPIO_Port->GPIOx_PUPDR |= (pullState << (PinNum * 2));
+
 }
 
 Gpio_WriteDataFlag GPIO_WritePinValue(uint8 PortName, uint8 PinNum, Gpio_Data Data) {
 
 	uint8 portID = PortName - GPIO_A;
 
-	uint32 *gpioModerReg = REG32_ADDRESS(GPIOx_MODER, gpioAddresses[portID]);
-	uint32 *gpioOutputDataReg = REG32_ADDRESS(GPIOx_ODR, gpioAddresses[portID]);
+	GPIO_Reg *GPIO_Port = (GPIO_Reg *)gpioAddresses[portID];
 
-	if ((*gpioModerReg & (0x03 << (PinNum * 2))) >> (PinNum*2) != GPIO_OUTPUT)
+	if (( (GPIO_Port->GPIOx_MODER) & (0x03 << (PinNum * 2))) >> (PinNum*2) != GPIO_OUTPUT)
 	{
 		return NOK;
 	}
 
-	*gpioOutputDataReg &= ~(0x1 << PinNum);
-	*gpioOutputDataReg |= (Data << PinNum);
+	GPIO_Port->GPIOx_ODR &= ~(0x1 << PinNum);
+	GPIO_Port->GPIOx_ODR |= (Data << PinNum);
 
 	return OK;
 }
@@ -56,9 +54,9 @@ Gpio_Data GPIO_ReadPinState(uint8 PortName, uint8 PinNum){
 
   uint8 portID = PortName - GPIO_A;
 
-  uint32 *gpioInputDataReg = REG32_ADDRESS(GPIOx_IDR, gpioAddresses[portID]);
+  GPIO_Reg *GPIO_Port = (GPIO_Reg *)gpioAddresses[portID];
 
-  uint8 data = (*gpioInputDataReg & (1 << PinNum))? GPIO_DATA_RISING : GPIO_DATA_FALLING;
+  uint8 data = ( (GPIO_Port->GPIOx_IDR) & (1 << PinNum))? GPIO_DATA_RISING : GPIO_DATA_FALLING;
 
   return data;
 }
