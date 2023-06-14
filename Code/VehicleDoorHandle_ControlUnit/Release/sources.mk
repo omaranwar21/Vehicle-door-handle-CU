@@ -29,6 +29,7 @@ CPP_DEPS :=
 SUBDIRS := \
 Button \
 Delay \
+GPT \
 Gpio \
 Led \
 Rcc \

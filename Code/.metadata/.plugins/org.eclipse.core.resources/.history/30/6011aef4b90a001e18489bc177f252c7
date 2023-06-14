@@ -1,0 +1,125 @@
+/*
+ * main.c
+ *
+ *  Created on: May 8, 2023
+ *      Author: Anwar
+ */
+
+#include "VehicleDoorHandle.h"
+
+extern Action_State door_action;
+
+Action_State end_action = VDH_ACTION_IS_DONE;
+
+Action_State doorUnlock_action = VDH_ACTION_IS_NOT_DONE;
+
+Handle_State handle = VDH_HANDLE_FLOATING_STATE;
+
+//boolean enter_handle_flag = 0;
+Door_State door = VDH_DOOR_FLOATING_STATE;
+
+Time_State timer_10SecFlag = VDH_10SEC_ELAPSED;
+//boolean timer_started = 0;
+//boolean door_action = 0; // To terminate 10 seconds elapsed time flag
+uint32 first_time = 0;
+
+int main(void) {
+	VDH_defaultState();
+	//	GPT_Init();
+
+	//	uint8 ledState = LED_OFF;
+	//	uint8 ledState2 = LED_OFF;
+	while(1){
+		//		if (( (GPT_CheckTimeIsElapsed() == GPT_Elapsed) && timer_10SecFlag == 1) && !timer_started){
+		//			timer_started = 1;
+		//			VDH_stateAllLeds(LED_OFF);
+		//			GPT_StartTimer(2000);
+		//			first_time = GPT_GetElapsedTime();
+		//			//			LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, LED_ON);
+		//		}
+		//		if (timer_started) {
+		//			VDH_noActionState();
+		//		}
+
+		if (BUTTON_ReadState(VDH_BUTTONS_PORT, VDH_HANDLE_LOCK_UNLOCK_BUTTON) == BUTTON_PRESSED) {
+			//			GPIO_WritePinValue(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED, LED_ON);
+
+			if(handle == VDH_HANDLE_FLOATING_STATE){
+				handle = VDH_HANDLE_IS_LOCKED;
+			}
+
+			if (handle == VDH_HANDLE_IS_LOCKED) {
+				handle = VDH_HANDLE_IS_UNLOCKED;
+			}
+			else {
+				handle = VDH_HANDLE_IS_LOCKED;
+			}
+			end_action = VDH_ACTION_IS_NOT_DONE;
+			//			enter_handle_flag = 1;
+			timer_10SecFlag = VDH_10SEC_NOT_ELAPSED;
+
+			doorUnlock_action = VDH_ACTION_IS_NOT_DONE;
+
+			VDH_stateAllLeds(LED_ON);
+			GPT_StartTimer(10000);
+			first_time = GPT_GetElapsedTime();
+		}
+
+
+		if (handle == VDH_HANDLE_IS_UNLOCKED) {
+			if (doorUnlock_action == VDH_ACTION_IS_NOT_DONE) {
+				VDH_doorUnlock();
+			}
+			if (BUTTON_ReadState(VDH_BUTTONS_PORT, VDH_DOOR_LOCK_UNLOCK_BUTTON) == BUTTON_PRESSED && timer_10SecFlag == VDH_10SEC_NOT_ELAPSED) {
+				//			GPIO_WritePinValue(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED, LED_ON);
+				if(door == VDH_DOOR_FLOATING_STATE){
+					door = VDH_DOOR_IS_CLOSED;
+				}
+
+				if (door == VDH_DOOR_IS_CLOSED) {
+					door = VDH_DOOR_IS_OPENED;
+					timer_10SecFlag = VDH_10SEC_NOT_ELAPSED;
+					GPT_StartTimer(10000);
+				}
+				else {
+					door = VDH_DOOR_IS_CLOSED;
+				}
+				LED_Activate(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED, LED_ON);
+				//				door_flag = !door_flag;
+				door_action = VDH_ACTION_IS_NOT_DONE;
+
+				//				GPT_StartTimer(10000);
+				first_time = GPT_GetElapsedTime();
+			}
+			if ((door == VDH_DOOR_IS_CLOSED) && (door_action == VDH_ACTION_IS_NOT_DONE)) {
+				//				timer_10SecFlag = 0;
+				VDH_doorIsClosed();
+				//				door_flag = !door_flag;
+			}
+			if (GPT_GetElapsedTime() == GPT_Elapsed && timer_10SecFlag == VDH_10SEC_NOT_ELAPSED && (door == VDH_DOOR_IS_CLOSED || door == VDH_DOOR_FLOATING_STATE)) {
+				timer_10SecFlag = VDH_10SEC_ELAPSED;
+				//				GPT_StartTimer(2000);
+				first_time = GPT_GetElapsedTime();
+				VDH_stateAllLeds(LED_OFF);
+				LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, LED_ON);
+			}
+			if (timer_10SecFlag == VDH_10SEC_ELAPSED){
+				VDH_noActionState();
+				//				LED_Toggle(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED);
+			}
+		}
+		else if(handle == VDH_HANDLE_IS_LOCKED){
+			LED_Activate(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED, LED_OFF);
+			LED_Activate(VDH_LEDS_PORT, VDH_LOCK_LED, LED_OFF);
+			door = VDH_DOOR_IS_CLOSED;
+			VDH_noActionState();
+			//			LED_Activate(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED, LED_ON);
+		}
+	}
+
+	return 0;
+}
+
+
+
+

@@ -17,4 +17,6 @@ void LED_Init(uint8 portName, uint8 pinNum);
 
 void LED_Activate(uint8 portName, uint8 pinNum, uint8 state);
 
+void LED_Toggle(uint8 portName, uint8 pinNum);
+
 #endif /* LED_H_ */

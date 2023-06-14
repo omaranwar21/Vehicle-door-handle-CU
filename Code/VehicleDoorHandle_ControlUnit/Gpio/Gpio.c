@@ -52,13 +52,19 @@ Gpio_WriteDataFlag GPIO_WritePinValue(uint8 PortName, uint8 PinNum, Gpio_Data Da
 
 Gpio_Data GPIO_ReadPinState(uint8 PortName, uint8 PinNum){
 
-  uint8 portID = PortName - GPIO_A;
+	uint8 portID = PortName - GPIO_A;
 
-  GPIO_Reg *GPIO_Port = (GPIO_Reg *)gpioAddresses[portID];
+	GPIO_Reg *GPIO_Port = (GPIO_Reg *)gpioAddresses[portID];
 
-  uint8 data = ( (GPIO_Port->GPIOx_IDR) & (1 << PinNum))? GPIO_DATA_RISING : GPIO_DATA_FALLING;
+	Gpio_Data data;
+	if ( ((GPIO_Port->GPIOx_MODER & (0x03 << (PinNum * 2))) >> (PinNum*2) ) == GPIO_OUTPUT) {
+		data = ( (GPIO_Port->GPIOx_ODR) & (1 << PinNum))? GPIO_DATA_FALLING : GPIO_DATA_RISING;
+	}
+	else if ( ((GPIO_Port->GPIOx_MODER & (0x03 << (PinNum * 2))) >> (PinNum*2) ) == GPIO_INPUT){
+		data = ( (GPIO_Port->GPIOx_IDR) & (1 << PinNum))? GPIO_DATA_RISING : GPIO_DATA_FALLING;
+	}
+	return data;
 
-  return data;
 }
 
 

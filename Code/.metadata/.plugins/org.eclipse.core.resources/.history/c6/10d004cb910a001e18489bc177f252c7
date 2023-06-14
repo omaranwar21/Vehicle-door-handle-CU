@@ -1,0 +1,129 @@
+/*
+ * VehicleDoorHandle.c
+ *
+ *  Created on: May 9, 2023
+ *      Author: Anwar
+ */
+#include "VehicleDoorHandle.h"
+
+extern boolean enter_handle_flag;
+Action_State action = VDH_ACTION_IS_NOT_DONE;
+//extern boolean timer_10SecFlag;
+extern uint32 first_time;
+
+void VDH_defaultState(void){
+	Rcc_Init();
+	Rcc_Enable(RCC_GPIOA);
+	Rcc_Enable(RCC_GPIOB);
+	Rcc_Enable(RCC_TIM2);
+
+	LED_Init(VDH_LEDS_PORT, VDH_LOCK_LED);
+	LED_Activate(VDH_LEDS_PORT, VDH_LOCK_LED, LED_OFF);
+
+	LED_Init(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED);
+	LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, LED_OFF);
+
+	LED_Init(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED);
+	LED_Activate(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED, LED_OFF);
+
+	BUTTON_Init(VDH_BUTTONS_PORT, VDH_HANDLE_LOCK_UNLOCK_BUTTON);
+	BUTTON_Init(VDH_BUTTONS_PORT, VDH_DOOR_LOCK_UNLOCK_BUTTON);
+
+	GPT_Init();
+}
+
+void VDH_stateAllLeds(uint8 state){
+	LED_Activate(VDH_LEDS_PORT, VDH_LOCK_LED, state);
+
+	LED_Activate(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED, state);
+
+	LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, state);
+}
+
+
+void VDH_doorUnlock(void){
+
+	//	delay_ms(500);
+//	static uint8 num_of_toggles = 1;
+	static uint8 num_of_ticks = 0;
+	uint32 time_elapsed = GPT_GetElapsedTime();
+	if ( (time_elapsed - first_time) == 500) {
+		num_of_ticks++;
+//		if (num_of_ticks == 1) {
+			LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, LED_OFF);
+//		}
+		if (num_of_ticks % 4 == 0) {
+			LED_Activate(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED, LED_OFF);
+//			num_of_ticks = 0;
+		}
+		first_time = GPT_GetElapsedTime();
+	}
+	//	delay_ms(500);
+	//	LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, LED_ON);
+	//	delay_ms(500);
+	//	LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, LED_OFF);
+	//	delay_ms(500);
+
+	//	delay_ms(1000);
+
+//	if (GPT_CheckTimeIsElapsed() == GPT_Elapsed) {
+//		flag = 0;
+//		num_of_toggles = 1;
+//	}
+}
+
+void VDH_noActionState(void){
+
+	//	if ( (GPT_GetElapsedTime() <= 500) || (GPT_GetElapsedTime() >= 1000 && GPT_GetElapsedTime() < 1500)) {
+	//	}
+	//	else
+//	static uint32 start_time = 0;
+//	start_time = first_time;
+
+	static uint8 num_of_ticks = 0;
+
+	uint32 time_elapsed = GPT_GetElapsedTime();
+	//	|| (time_elapsed >= 1500)
+//	if( (time_elapsed > 500 && time_elapsed < 1000) || (time_elapsed >= 1500) ){
+//		LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, LED_OFF);
+//	}
+	if( (time_elapsed - first_time) >= 500 && num_of_ticks < 3){
+		num_of_ticks++;
+//		LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, LED_OFF);
+		LED_Toggle(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED);
+//		LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, LED_ON);
+		first_time = GPT_GetElapsedTime();
+
+		if (num_of_ticks == 3) {
+			num_of_ticks = 0;
+			enter_handle_flag = 0;
+		}
+	}
+//	else{
+//
+//		LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, LED_ON);
+//	}
+
+//	if (GPT_CheckTimeIsElapsed() == GPT_Elapsed) {
+//		LED_Toggle(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED);
+//		timer_10SecFlag = 0;
+//	}
+
+}
+
+void VDH_doorIsClosed(void){
+		uint32 time_elapsed = GPT_GetElapsedTime();
+		//	|| (time_elapsed >= 1500)
+	//	if( (time_elapsed > 500 && time_elapsed < 1000) || (time_elapsed >= 1500) ){
+	//		LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, LED_OFF);
+	//	}
+		if( (time_elapsed - first_time) >= 1000){
+	//		LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, LED_OFF);
+			LED_Toggle(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED);
+	//		LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, LED_ON);
+			first_time = GPT_GetElapsedTime();
+		}
+}
+
+
+

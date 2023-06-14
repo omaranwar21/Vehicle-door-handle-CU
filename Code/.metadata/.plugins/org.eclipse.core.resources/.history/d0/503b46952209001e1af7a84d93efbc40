@@ -1,0 +1,57 @@
+/*
+ * main.c
+ *
+ *  Created on: May 8, 2023
+ *      Author: Anwar
+ */
+
+#include "VehicleDoorHandle.h"
+
+boolean flag = 0;
+boolean timer_10SecFlag = 0;
+boolean timer_started = 0;
+uint32 first_time = 0;
+
+int main(void) {
+	VDH_defaultState();
+	//	GPT_Init();
+
+	//	uint8 ledState = LED_OFF;
+	//	uint8 ledState2 = LED_OFF;
+	while(1){
+		if (!timer_10SecFlag) {
+			timer_10SecFlag = 1;
+			GPT_StartTimer(10000);
+			timer_started = 0;
+		}
+		if (( (GPT_CheckTimeIsElapsed() == GPT_Elapsed) && timer_10SecFlag == 1) && !timer_started){
+			timer_started = 1;
+			VDH_stateAllLeds(LED_OFF);
+			GPT_StartTimer(2000);
+			first_time = GPT_GetElapsedTime();
+			//			LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, LED_ON);
+		}
+		if (timer_started) {
+			VDH_noActionState();
+		}
+
+//		if (BUTTON_ReadState(VDH_BUTTONS_PORT, VDH_HANDLE_LOCK_UNLOCK_BUTTON) == BUTTON_PRESSED) {
+//			//			GPIO_WritePinValue(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED, LED_ON);
+//			flag = 1;
+//			timer_10SecFlag = 0;
+//			VDH_stateAllLeds(LED_ON);
+//			GPT_StartTimer(2000);
+//		}
+//
+//		if (flag == 1) {
+//			VDH_doorUnlock();
+//			//			flag = 0;
+//		}
+	}
+
+	return 0;
+}
+
+
+
+

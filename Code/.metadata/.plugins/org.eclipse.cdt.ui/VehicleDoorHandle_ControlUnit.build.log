@@ -1,13 +1,13 @@
-04:42:16 **** Incremental Build of configuration Release for project VehicleDoorHandle_ControlUnit ****
+16:39:34 **** Incremental Build of configuration Release for project VehicleDoorHandle_ControlUnit ****
 make all 
-Building file: ../src/VehicleDoorHandle.c
+Building file: ../Button/Button.c
 Invoking: GNU Arm Cross C Compiler
-arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -Wall -Wextra -g -DNDEBUG -DSTM32F401xE -DHSE_VALUE=8000000 -I"C:\Users\Anwar\Desktop\SBME 2024\YEAR 3 (2022-2023)\SEMESTER 2\Embedded Systems\Final Project\Code\VehicleDoorHandle_ControlUnit\Delay" -I"C:\Users\Anwar\Desktop\SBME 2024\YEAR 3 (2022-2023)\SEMESTER 2\Embedded Systems\Final Project\Code\VehicleDoorHandle_ControlUnit\Button" -I"C:\Users\Anwar\Desktop\SBME 2024\YEAR 3 (2022-2023)\SEMESTER 2\Embedded Systems\Final Project\Code\VehicleDoorHandle_ControlUnit\Led" -I"C:\Users\Anwar\Desktop\SBME 2024\YEAR 3 (2022-2023)\SEMESTER 2\Embedded Systems\Final Project\Code\VehicleDoorHandle_ControlUnit\Gpio" -I"C:\Users\Anwar\Desktop\SBME 2024\YEAR 3 (2022-2023)\SEMESTER 2\Embedded Systems\Final Project\Code\VehicleDoorHandle_ControlUnit\Lib" -I"C:\Users\Anwar\Desktop\SBME 2024\YEAR 3 (2022-2023)\SEMESTER 2\Embedded Systems\Final Project\Code\VehicleDoorHandle_ControlUnit\Rcc" -I"../include" -I"../system/include" -I"../system/include/cmsis" -std=gnu11 -MMD -MP -MF"src/VehicleDoorHandle.d" -MT"src/VehicleDoorHandle.o" -c -o "src/VehicleDoorHandle.o" "../src/VehicleDoorHandle.c"
-Finished building: ../src/VehicleDoorHandle.c
+arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -Wall -Wextra -g -DNDEBUG -DSTM32F401xE -DHSE_VALUE=8000000 -I"C:\Users\Anwar\Desktop\SBME 2024\YEAR 3 (2022-2023)\SEMESTER 2\Embedded Systems\Final Project\Code\VehicleDoorHandle_ControlUnit\Delay" -I"C:\Users\Anwar\Desktop\SBME 2024\YEAR 3 (2022-2023)\SEMESTER 2\Embedded Systems\Final Project\Code\VehicleDoorHandle_ControlUnit\GPT" -I"C:\Users\Anwar\Desktop\SBME 2024\YEAR 3 (2022-2023)\SEMESTER 2\Embedded Systems\Final Project\Code\VehicleDoorHandle_ControlUnit\Button" -I"C:\Users\Anwar\Desktop\SBME 2024\YEAR 3 (2022-2023)\SEMESTER 2\Embedded Systems\Final Project\Code\VehicleDoorHandle_ControlUnit\Led" -I"C:\Users\Anwar\Desktop\SBME 2024\YEAR 3 (2022-2023)\SEMESTER 2\Embedded Systems\Final Project\Code\VehicleDoorHandle_ControlUnit\Gpio" -I"C:\Users\Anwar\Desktop\SBME 2024\YEAR 3 (2022-2023)\SEMESTER 2\Embedded Systems\Final Project\Code\VehicleDoorHandle_ControlUnit\Lib" -I"C:\Users\Anwar\Desktop\SBME 2024\YEAR 3 (2022-2023)\SEMESTER 2\Embedded Systems\Final Project\Code\VehicleDoorHandle_ControlUnit\Rcc" -I"../include" -I"../system/include" -I"../system/include/cmsis" -std=gnu11 -MMD -MP -MF"Button/Button.d" -MT"Button/Button.o" -c -o "Button/Button.o" "../Button/Button.c"
+Finished building: ../Button/Button.c
  
 Building target: VehicleDoorHandle_ControlUnit.elf
 Invoking: GNU Arm Cross C++ Linker
-arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -Wall -Wextra -g -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"VehicleDoorHandle_ControlUnit.map" --specs=nano.specs -o "VehicleDoorHandle_ControlUnit.elf" ./system/src/newlib/assert.o ./system/src/newlib/cxx.o ./system/src/newlib/exit.o ./system/src/newlib/sbrk.o ./system/src/newlib/startup.o ./system/src/newlib/syscalls.o  ./system/src/diag/trace-impl.o ./system/src/diag/trace.o  ./system/src/cortexm/exception-handlers.o ./system/src/cortexm/initialize-hardware.o ./system/src/cortexm/reset-hardware.o  ./system/src/cmsis/system_stm32f4xx.o ./system/src/cmsis/vectors_stm32f401xe.o  ./src/VehicleDoorHandle.o ./src/main.o  ./Rcc/Rcc.o  ./Led/Led.o  ./Gpio/Gpio.o  ./Delay/Delay.o  ./Button/Button.o   
+arm-none-eabi-g++ -mcpu=cortex-m4 -mthumb -mfloat-abi=soft -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -ffreestanding -Wall -Wextra -g -T mem.ld -T libs.ld -T sections.ld -nostartfiles -Xlinker --gc-sections -L"../ldscripts" -Wl,-Map,"VehicleDoorHandle_ControlUnit.map" --specs=nano.specs -o "VehicleDoorHandle_ControlUnit.elf" ./system/src/newlib/assert.o ./system/src/newlib/cxx.o ./system/src/newlib/exit.o ./system/src/newlib/sbrk.o ./system/src/newlib/startup.o ./system/src/newlib/syscalls.o  ./system/src/diag/trace-impl.o ./system/src/diag/trace.o  ./system/src/cortexm/exception-handlers.o ./system/src/cortexm/initialize-hardware.o ./system/src/cortexm/reset-hardware.o  ./system/src/cmsis/system_stm32f4xx.o ./system/src/cmsis/vectors_stm32f401xe.o  ./src/VehicleDoorHandle.o ./src/main.o  ./Rcc/Rcc.o  ./Led/Led.o  ./Gpio/Gpio.o  ./GPT/gpt.o  ./Delay/Delay.o  ./Button/Button.o   
 Finished building target: VehicleDoorHandle_ControlUnit.elf
  
 Invoking: GNU Arm Cross Create Flash Image
@@ -17,9 +17,9 @@ Finished building: VehicleDoorHandle_ControlUnit.hex
 Invoking: GNU Arm Cross Print Size
 arm-none-eabi-size --format=berkeley "VehicleDoorHandle_ControlUnit.elf"
    text	   data	    bss	    dec	    hex	filename
-   3890	     68	    260	   4218	   107a	VehicleDoorHandle_ControlUnit.elf
+   4722	     76	    272	   5070	   13ce	VehicleDoorHandle_ControlUnit.elf
 Finished building: VehicleDoorHandle_ControlUnit.siz
  
 
-04:42:17 Build Finished. 0 errors, 0 warnings. (took 680ms)
+16:39:35 Build Finished. 0 errors, 0 warnings. (took 685ms)
 

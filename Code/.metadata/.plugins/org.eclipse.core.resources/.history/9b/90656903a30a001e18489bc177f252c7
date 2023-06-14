@@ -1,0 +1,47 @@
+/*
+ * gpt.c
+ *
+ *  Created on: May 9, 2023
+ *      Author: Anwar
+ */
+
+#include "gpt.h"
+
+uint8 g_flag = 0;
+
+void GPT_Init(void){
+	TIM2->TIMx_PSC = 4000-1;
+//	SET_BIT(TIM2->TIMx_CR1, 0);
+}
+
+
+void GPT_StartTimer(uint32 OverFlowTicks){
+	CLEAR_BIT(TIM2->TIMx_CR1, 0);
+	TIM2->TIMx_ARR = OverFlowTicks;
+	g_flag = 1;
+	TIM2->TIMx_CNT = 1;
+	SET_BIT(TIM2->TIMx_CR1, 0);
+}
+
+
+GPT_TimeIsElapsed GPT_CheckTimeIsElapsed(void){
+	if (TIM2->TIMx_CNT == (TIM2->TIMx_ARR)-1 && g_flag){
+//		CLEAR_BIT(TIM2->TIMx_CR1, 0);
+		g_flag = 0;
+		return GPT_Elapsed;
+	}else{
+		return GPT_NotElapsed;
+	}
+}
+
+
+uint32 GPT_GetElapsedTime(void){
+	return TIM2->TIMx_CNT;
+}
+
+
+uint32 GPT_GetRemainingTime(void){
+	return (TIM2->TIMx_ARR - TIM2->TIMx_CNT);
+}
+
+
