@@ -84,8 +84,8 @@ README.md
 
 ### Application Preview
 - Steps:
-  - Handle Button Pressed        &nbsp; ==> Handle Un-locked
-  - Wait for 10 sec                ==> Automatic Handle Locked
+  - Handle Button Pressed &nbsp; ==> Handle Un-locked
+  - Wait for 10 sec &nbsp;&nbsp;&nbsp;==> Automatic Handle Locked
   - Door   Button Pressed          ==> No Action
   - Handle Button Pressed (Again)  ==> Handle Un-locked
   - Door   Button Pressed (Again)  ==> Door Opened
