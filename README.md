@@ -11,6 +11,7 @@
 
 ***
 ### Introduction
+
 The project aims to implement a vehicle door handle control unit that supports an anti-theft locking capability. The system consists 
 of the following components:
    - A microcontroller unit.
@@ -21,6 +22,7 @@ of the following components:
      
 ***
 ### Project Features
+
 In this project, we have implemented:
 - [x] xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:
   - xxxxxxxxxxxxxxxxxxx.
@@ -31,8 +33,10 @@ In this project, we have implemented:
 - **The System Layers Design**:
   ![layers](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/73500759-4c90-41b2-8991-2675331aeaf0)
 
+
 - **The system shall be implemented to handle the following use cases**:
   ![system](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/a192ff48-1264-4c14-8f41-4301ff52ecca)
+
 
 - **The System Hardware Components** :
   - STM32F401x Microcontroller
@@ -85,7 +89,7 @@ README.md
 ### Application Preview
 <br>
 - Steps:
-  
+<br>
 | Action                            | Result                     |
 |-----------------------------------|:--------------------------:|
 |Handle Button Pressed              |  Handle Un-locked          | 
@@ -96,8 +100,10 @@ README.md
 |Handle Button Pressed (3rd time)   |  `No Action`               | 
 |Door   Button Pressed (3rd time)   |  Door Closed               | 
 |Handle Button Pressed (4th time)   |  Handle locked             | 
+<br>
 
 - Simulation:
+<br>
   ![Final_Project_Embedded](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/75c308a2-dcc0-458f-a70b-243d7791c526)
 
 
