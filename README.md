@@ -87,11 +87,11 @@ README.md
   - Handle Button Pressed &nbsp; ==> Handle Un-locked
   - Wait for 10 sec &nbsp ==> Automatic Handle Locked
   - Door   Button Pressed &nbsp;         ==> No Action
-  - Handle Button Pressed (Again) &nbsp; ==> Handle Un-locked
-  - Door   Button Pressed (Again)  &nbsp;==> Door Opened
-  - Handle Button Pressed (Again)  &nbsp;==> No Action
-  - Door   Button Pressed (Again)  &nbsp;==> Door Closed
-  - Handle Button Pressed (Again)  &nbsp;==> Handle locked
+  - Handle Button Pressed (2nd time) &nbsp; ==> Handle Un-locked
+  - Door   Button Pressed (2nd time)  &nbsp;==> Door Opened
+  - Handle Button Pressed (3rd time)  &nbsp;==> No Action
+  - Door   Button Pressed (3rd time)  &nbsp;==> Door Closed
+  - Handle Button Pressed (4th time)  &nbsp;==> Handle locked
 - Simulation:
   ![Final_Project_Embedded](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/75c308a2-dcc0-458f-a70b-243d7791c526)
 
