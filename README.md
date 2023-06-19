@@ -4,7 +4,7 @@
 - [Introduction](#introduction)
 - [Project Features](#project-features)
 - [Project Structure](#project-structure)
-- [Quick Preview](#quick-preview)
+- [Application Preview](#Application-preview)
 - [Requirements to run](#Requirements-to-run)
 - [Run the project](#Run-the-project)
 - [Team]()
