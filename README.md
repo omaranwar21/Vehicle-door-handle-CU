@@ -85,11 +85,10 @@ VehicleDoorHandle_ControlUnit
 
 README.md
 ```
-
+***
 ### Application Preview
 <br>
 - Steps:
-<br>
 
 | Action                            | Result                     |
 |-----------------------------------|:--------------------------:|
@@ -104,8 +103,7 @@ README.md
 <br>
 
 - Simulation:
-<br>
-  ![Final_Project_Embedded](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/75c308a2-dcc0-458f-a70b-243d7791c526)
+![Final_Project_Embedded](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/75c308a2-dcc0-458f-a70b-243d7791c526)
 
 
 ***
