@@ -10,7 +10,38 @@
 
 #include "Std_Types.h"
 
-#define TIM2_BASE_ADDRESS 0x40000000
+
+// Define the base addresses for the four Timers
+#define TIM2_BASE_ADDRESS  0x40000000
+#define TIM3_BASE_ADDRESS  0x40000400
+#define TIM4_BASE_ADDRESS  0x40000800
+#define TIM5_BASE_ADDRESS  0x40000C00
+
+#define TIM9_BASE_ADDRESS  0x40014000
+#define TIM10_BASE_ADDRESS 0x40014400
+#define TIM11_BASE_ADDRESS 0x40014800
+
+
+//define the Timers Bits Needed
+
+#define CR1_CEN_BIT                0     // Counter enable
+#define CR1_UDIS_BIT               1     // Update disable
+#define CR1_OPM_BIT                3     // One-pulse mode
+#define CR1_DIR_BIT                4     // counting direction bit
+#define CR1_ARPE_BIT               7     // Auto-reload pre-load enable
+
+
+
+//------------------------------------------------
+
+#define DIER_UIE_BIT               0     // Update interrupt enable
+
+//------------------------------------------------
+
+#define SR_UIF_BIT                 0     // Update interrupt flag ( be (1) : Update interrupt pending )
+
+//------------------------------------------------
+
 
 typedef struct{
 	uint32 TIMx_CR1;
@@ -35,8 +66,60 @@ typedef struct{
 	uint32 TIMx_DMAR;
 	uint32 TIM2_OR;
 	uint32 TIM5_OR;
-}TIM2_TYPE;
+}TIMX_TYPE;
 
+
+typedef enum
+{
+	Basic_Counter, Input_CaptureCompare, Output_CaptureCompare
+}TIMX_Mode_Selection;
+
+
+
+/* -------------------------------- CR1 ------------------------------------- */
+
+
+typedef enum
+{
+	Counter_Enabled, Counter_Disabled
+}CR1_CounterControl;
+
+typedef enum
+{
+	Update_Event_Enabled, Update_Event_Disaabled
+}CR1_UpdateEvent;
+typedef enum
+{
+	 Counter_not_stop_with_Updating, Counter_stop_with_Updating
+}CR1_OnePulseMode;
+
+typedef enum
+{
+	Up_Counting, Down_Counting, Up_Down_Counting
+}CR1_CounterDirection;
+
+
+// this control the PWM used modes to set a specific period determined using CCRx
+typedef enum
+{
+	 set_countingDown=1 , set_countingUp, set_countingUpDown
+}CMS_PWM_Modes;
+
+typedef enum
+{
+	Auto_Reload_Not_Buffering, Auto_Reload_Buffering
+}CR1_AutoReloadPreloadEnable;
+
+
+/* -------------------------------- DIER -------------------------------------*/
+
+typedef enum
+{
+	Update_interrupt_disabled,  Update_interrupt_enabled
+}DIER_Update_Interrupt;
+
+
+/* -------------------------------- CCMR1 -------------------------------------*/
 
 
 

@@ -12,17 +12,20 @@
 #include "Button.h"
 #include "Rcc.h"
 #include "gpt.h"
+#include "Exti.h"
 
 #define VDH_BUTTONS_PORT							GPIO_B
 #define VDH_HANDLE_LOCK_UNLOCK_BUTTON				5
 #define VDH_DOOR_LOCK_UNLOCK_BUTTON					8
 
 #define VDH_LEDS_PORT								GPIO_A
+#define VDH_TEST_TIMERS_LED                         1
 #define VDH_LOCK_LED								2
 #define VDH_HAZARD_LIGHTS_LED						4
 #define VDH_AMBIENT_LIGHT_LED						6
 
 #define VDH_SECURITY_TIME_IN_ms						10000
+#define VDH_PROCESS_TIME_IN_ms                      2000
 #define VDH_HAZZARD_BLINKING_TIME					500
 #define VDH_AMBIENT_CLOSED_DOOR_BLINKING_TIME		1000
 #define VDH_AMBIENT_HANDLE_UNLOCK_BLINKING_TIME		2000
@@ -30,8 +33,10 @@
 
 #define VDH_INIT_NUM_TICKS							0
 
+extern BUTTON_TimerState timerIsOn;
+
 typedef enum{
-	VDH_DOOR_IS_CLOSED, VDH_DOOR_IS_OPENED, VDH_DOOR_FLOATING_STATE
+	VDH_DOOR_IS_CLOSED, VDH_DOOR_IS_OPENED
 }Door_State;
 
 typedef enum{
@@ -46,11 +51,26 @@ typedef enum{
 	VDH_ACTION_IS_NOT_DONE, VDH_ACTION_IS_DONE
 }Action_State;
 
+typedef union{
+	uint8 flags;
+	struct{
+		Handle_State handle				: 2;
+		Action_State door_action		: 1;
+		Action_State door_changeState	: 1;
+		Action_State end_action			: 1;
+		Action_State doorUnlock_action	: 1;
+		Door_State door					: 1;
+		Time_State timer_10SecFlag		: 1;
+	}combinedFlags;
+}VDH_Flags;
+
 void VDH_stateAllLeds(uint8);
 void VDH_defaultState(void);
 void VDH_doorUnlock(void);
 void VDH_noActionState(void);
 void VDH_doorIsClosed(void);
+void VDH_doorButtonPressed(void);
+void VDH_FlagInit(void);
 
 
 #endif /* VEHICLEDOORHANDLE_H_ */

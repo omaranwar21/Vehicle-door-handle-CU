@@ -8,16 +8,30 @@
 #ifndef BUTTON_H_
 #define BUTTON_H_
 
-#define BUTTON_PRESSED			GPIO_DATA_FALLING
-#define BUTTON_RELEASED			GPIO_DATA_RISING
-#define BUTTON_WEIRD_BEHAVIOR	2
+#define BUTTON_DEBOUNCING_TIME_ms	30
+#define BUTTON_START_TIME_ms		100
+
 
 #include "Gpio.h"
 #include "Delay.h"
+#include "Bit_Operations.h"
+#include "gpt.h"
+
+typedef enum{
+	BUTTON_RELEASED = GPIO_DATA_RISING, BUTTON_PRESSED = GPIO_DATA_FALLING, BUTTON_FLOATING
+}BUTTON_States;
+
+typedef enum{
+	BUTTON_FirstRead_NotDone, BUTTON_FirstRead_Done
+}BUTTON_FirstRead;
+
+typedef enum{
+	BUTTON_TimerIsOff, BUTTON_TimerIsOn
+}BUTTON_TimerState;
 
 void BUTTON_Init(uint8 portName, uint8 pinNum);
 
-uint8 BUTTON_ReadState(uint8 portName, uint8 pinNum);
+BUTTON_States BUTTON_ReadState(uint8 portName, uint8 pinNum);
 
 
 #endif /* BUTTON_H_ */
