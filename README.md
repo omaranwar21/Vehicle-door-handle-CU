@@ -88,6 +88,7 @@ README.md
 ***
 ### Application Preview
 <br>
+
 - Steps:
 
 | Action                            | Result                     |
