@@ -28,13 +28,13 @@ In this project, we have implemented:
 ***
 ### Project Structure
 
-- The System Layers Design:
+- **The System Layers Design**:
   ![layers](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/73500759-4c90-41b2-8991-2675331aeaf0)
 
-- The system shall be implemented to handle the following use cases:
+- **The system shall be implemented to handle the following use cases**:
   ![system](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/a192ff48-1264-4c14-8f41-4301ff52ecca)
 
-- The System Hardware Components :
+- **The System Hardware Components** :
   - STM32F401x Microcontroller
   - Handles Push Button
   - Door Push Button
@@ -42,7 +42,7 @@ In this project, we have implemented:
   - Hazard Led  ( Red )
   - Ambient Led ( Blue )
 
-- Implemented Drivers :
+- **Implemented Drivers** :
 ```
 VehicleDoorHandle_ControlUnit
 ├─  Button
@@ -83,15 +83,20 @@ README.md
 ```
 
 ### Application Preview
+<br>
 - Steps:
-  - Handle Button Pressed &nbsp; ==> Handle Un-locked
-  - Wait for 10 sec &nbsp; ==> Automatic Handle Locked
-  - Door   Button Pressed &nbsp;         ==> No Action
-  - Handle Button Pressed (2nd time) &nbsp; ==> Handle Un-locked
-  - Door   Button Pressed (2nd time)  &nbsp;==> Door Opened
-  - Handle Button Pressed (3rd time)  &nbsp;==> No Action
-  - Door   Button Pressed (3rd time)  &nbsp;==> Door Closed
-  - Handle Button Pressed (4th time)  &nbsp;==> Handle locked
+  
+| Action                            | Result                     |
+|-----------------------------------|:--------------------------:|
+|Handle Button Pressed              |  Handle Un-locked          | 
+|Wait for 10 sec                    |  Automatic Handle Locked   | 
+|Door   Button Pressed              |  `No Action`               | 
+|Handle Button Pressed (2nd time)   |  Handle Un-locked          | 
+|Door   Button Pressed (2nd time)   |  Door Opened               | 
+|Handle Button Pressed (3rd time)   |  `No Action`               | 
+|Door   Button Pressed (3rd time)   |  Door Closed               | 
+|Handle Button Pressed (4th time)   |  Handle locked             | 
+
 - Simulation:
   ![Final_Project_Embedded](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/75c308a2-dcc0-458f-a70b-243d7791c526)
 
