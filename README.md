@@ -29,10 +29,10 @@ In this project, we have implemented:
 ### Project Structure
 
 - The System Layers Design:
-   - ![layers](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/73500759-4c90-41b2-8991-2675331aeaf0)
+  ![layers](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/73500759-4c90-41b2-8991-2675331aeaf0)
 
 - The system shall be implemented to handle the following use cases:
-   - ![system](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/a192ff48-1264-4c14-8f41-4301ff52ecca)
+  ![system](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/a192ff48-1264-4c14-8f41-4301ff52ecca)
 
 - The System Hardware Components :
   - STM32F401x Microcontroller
@@ -42,6 +42,7 @@ In this project, we have implemented:
   - Hazard Led  ( Red )
   - Ambient Led ( Blue )
 
+- Implemented Drivers :
 ```
 VehicleDoorHandle_ControlUnit
 ├─  Button
@@ -83,7 +84,7 @@ README.md
 
 ### Application Preview
 - Steps:
-  - Handle Button Pressed          ==> Handle Un-locked
+  - Handle Button Pressed        &nbsp; ==> Handle Un-locked
   - Wait for 10 sec                ==> Automatic Handle Locked
   - Door   Button Pressed          ==> No Action
   - Handle Button Pressed (Again)  ==> Handle Un-locked
