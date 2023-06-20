@@ -3,6 +3,7 @@
  *  Project		: Vehicle Door Handle Control Unit
  * 	File Name	: Button.h
  *	Team 		: 20
+ *	Members		: Abdelrahman Yasser - Omar Ahmed Anwar - Mo'men Mohamed - Neveen Mohamed
  *  ===================================================================================================================================
  */
 
@@ -20,9 +21,14 @@
 #include "gpt.h"
 /*------------------------------------------------------*/
 
+#ifdef GPT_H_
+
+extern TIMx_Configue Timer;
+
+#endif
 /*---------------------- Definitions ----------------------*/
 #define BUTTON_DEBOUNCING_TIME_ms	30
-#define BUTTON_START_TIME_ms		100
+#define BUTTON_START_TIME_ms		1000
 /*---------------------------------------------------------*/
 
 /*----------------- Defined types -------------------------*/

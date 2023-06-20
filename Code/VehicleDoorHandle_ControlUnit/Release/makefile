@@ -17,6 +17,7 @@ RM := rm -rf
 -include Led/subdir.mk
 -include Gpio/subdir.mk
 -include GPT/subdir.mk
+-include External_Interrupt/subdir.mk
 -include Delay/subdir.mk
 -include Button/subdir.mk
 -include subdir.mk

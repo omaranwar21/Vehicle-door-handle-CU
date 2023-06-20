@@ -3,6 +3,7 @@
  *  Project		: Vehicle Door Handle Control Unit
  * 	File Name	: Button.c
  *	Team 		: 20
+ *	Members		: Abdelrahman Yasser - Omar Ahmed Anwar - Mo'men Mohamed - Neveen Mohamed
  *  ===================================================================================================================================
  */
 
@@ -71,7 +72,7 @@ BUTTON_States BUTTON_ReadState(uint8 portName, uint8 pinNum){
 
 		if (timerIsOn == BUTTON_TimerIsOff) {
 
-			GPT_StartTimer(TIM2,BUTTON_START_TIME_ms);
+			GPT_StartTimer(&Timer, BUTTON_START_TIME_ms);
 
 		}
 
@@ -90,11 +91,11 @@ BUTTON_States BUTTON_ReadState(uint8 portName, uint8 pinNum){
 
 		}
 
-		BUTTON_firstTime = GPT_GetElapsedTime(TIM2);
+		BUTTON_firstTime = GPT_GetElapsedTime(&Timer);
 
 	}
 	else{
-		elapsed_time = GPT_GetElapsedTime(TIM2);
+		elapsed_time = GPT_GetElapsedTime(&Timer);
 
 		if ( ( (elapsed_time - BUTTON_firstTime) >= BUTTON_DEBOUNCING_TIME_ms ) ) {
 

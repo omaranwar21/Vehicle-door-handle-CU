@@ -145,13 +145,27 @@ Discarded input sections
  .text          0x00000000        0x0 ./GPT/gpt.o
  .data          0x00000000        0x0 ./GPT/gpt.o
  .bss           0x00000000        0x0 ./GPT/gpt.o
- .text.GPT_CheckTimeIsElapsed
-                0x00000000       0x38 ./GPT/gpt.o
  .text.GPT_GetRemainingTime
-                0x00000000       0x1a ./GPT/gpt.o
+                0x00000000       0x60 ./GPT/gpt.o
+ .text          0x00000000        0x0 ./External_Interrupt/ExtI.o
+ .data          0x00000000        0x0 ./External_Interrupt/ExtI.o
+ .bss           0x00000000        0x0 ./External_Interrupt/ExtI.o
  .text          0x00000000        0x0 ./Delay/Delay.o
  .data          0x00000000        0x0 ./Delay/Delay.o
  .bss           0x00000000        0x0 ./Delay/Delay.o
+ .text.delay_ms
+                0x00000000       0x58 ./Delay/Delay.o
+ .debug_info    0x00000000       0xd3 ./Delay/Delay.o
+ .debug_abbrev  0x00000000       0x6a ./Delay/Delay.o
+ .debug_aranges
+                0x00000000       0x20 ./Delay/Delay.o
+ .debug_ranges  0x00000000       0x10 ./Delay/Delay.o
+ .debug_line    0x00000000       0xfc ./Delay/Delay.o
+ .debug_str     0x00000000      0x20f ./Delay/Delay.o
+ .comment       0x00000000       0x4a ./Delay/Delay.o
+ .debug_frame   0x00000000       0x38 ./Delay/Delay.o
+ .ARM.attributes
+                0x00000000       0x2e ./Delay/Delay.o
  .text          0x00000000        0x0 ./Button/Button.o
  .data          0x00000000        0x0 ./Button/Button.o
  .bss           0x00000000        0x0 ./Button/Button.o
@@ -161,12 +175,24 @@ Discarded input sections
  .debug_frame   0x00000000       0x24 c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_mulsf3.o)
  .ARM.attributes
                 0x00000000       0x1e c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_mulsf3.o)
+ .text          0x00000000      0x21c c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_addsubsf3.o)
  .data          0x00000000        0x0 c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_addsubsf3.o)
  .bss           0x00000000        0x0 c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_addsubsf3.o)
+ .debug_frame   0x00000000       0x4c c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_addsubsf3.o)
+ .ARM.attributes
+                0x00000000       0x1e c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_addsubsf3.o)
+ .text          0x00000000      0x2a0 c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_muldivsf3.o)
  .data          0x00000000        0x0 c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_muldivsf3.o)
  .bss           0x00000000        0x0 c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_muldivsf3.o)
+ .debug_frame   0x00000000       0x38 c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_muldivsf3.o)
+ .ARM.attributes
+                0x00000000       0x1e c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_muldivsf3.o)
+ .text          0x00000000       0x40 c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_fixunssfsi.o)
  .data          0x00000000        0x0 c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_fixunssfsi.o)
  .bss           0x00000000        0x0 c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_fixunssfsi.o)
+ .debug_frame   0x00000000       0x24 c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_fixunssfsi.o)
+ .ARM.attributes
+                0x00000000       0x1e c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_fixunssfsi.o)
  .text          0x00000000        0x0 c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-errno.o)
  .data          0x00000000        0x0 c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-errno.o)
  .bss           0x00000000        0x0 c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libg_nano.a(lib_a-errno.o)
@@ -220,6 +246,7 @@ LOAD ./Rcc/Rcc.o
 LOAD ./Led/Led.o
 LOAD ./Gpio/Gpio.o
 LOAD ./GPT/gpt.o
+LOAD ./External_Interrupt/ExtI.o
 LOAD ./Delay/Delay.o
 LOAD ./Button/Button.o
 LOAD c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/nofp\libstdc++_nano.a
@@ -240,7 +267,7 @@ END GROUP
                 0x2000fc00                __Main_Stack_Limit = (__stack - __Main_Stack_Size)
                 [!provide]                PROVIDE (_Main_Stack_Limit = __Main_Stack_Limit)
                 0x00000100                _Minimum_Stack_Size = 0x100
-                0x20000034                PROVIDE (_Heap_Begin = _end_noinit)
+                0x200000b0                PROVIDE (_Heap_Begin = _end_noinit)
                 0x2000fc00                PROVIDE (_Heap_Limit = (__stack - __Main_Stack_Size))
 
 .isr_vector     0x08000000      0x3b2
@@ -272,19 +299,13 @@ END GROUP
                 0x0800038e                SysTick_Handler
  .after_vectors
                 0x080003ac        0x6 ./system/src/cmsis/vectors_stm32f401xe.o
-                0x080003ac                RTC_Alarm_IRQHandler
-                0x080003ac                EXTI2_IRQHandler
                 0x080003ac                SPI4_IRQHandler
                 0x080003ac                TIM1_CC_IRQHandler
                 0x080003ac                DMA2_Stream5_IRQHandler
                 0x080003ac                DMA1_Stream5_IRQHandler
-                0x080003ac                PVD_IRQHandler
                 0x080003ac                SDIO_IRQHandler
-                0x080003ac                TAMP_STAMP_IRQHandler
-                0x080003ac                EXTI3_IRQHandler
                 0x080003ac                TIM1_UP_TIM10_IRQHandler
                 0x080003ac                I2C3_ER_IRQHandler
-                0x080003ac                EXTI0_IRQHandler
                 0x080003ac                I2C2_EV_IRQHandler
                 0x080003ac                DMA1_Stream2_IRQHandler
                 0x080003ac                FPU_IRQHandler
@@ -301,22 +322,16 @@ END GROUP
                 0x080003ac                TIM3_IRQHandler
                 0x080003ac                RCC_IRQHandler
                 0x080003ac                Default_Handler
-                0x080003ac                EXTI15_10_IRQHandler
                 0x080003ac                ADC_IRQHandler
                 0x080003ac                DMA1_Stream7_IRQHandler
                 0x080003ac                TIM5_IRQHandler
                 0x080003ac                DMA2_Stream7_IRQHandler
                 0x080003ac                I2C3_EV_IRQHandler
-                0x080003ac                EXTI9_5_IRQHandler
-                0x080003ac                RTC_WKUP_IRQHandler
                 0x080003ac                SPI2_IRQHandler
                 0x080003ac                DMA1_Stream0_IRQHandler
-                0x080003ac                EXTI4_IRQHandler
                 0x080003ac                WWDG_IRQHandler
                 0x080003ac                TIM2_IRQHandler
-                0x080003ac                OTG_FS_WKUP_IRQHandler
                 0x080003ac                TIM1_TRG_COM_TIM11_IRQHandler
-                0x080003ac                EXTI1_IRQHandler
                 0x080003ac                USART2_IRQHandler
                 0x080003ac                I2C2_ER_IRQHandler
                 0x080003ac                DMA2_Stream1_IRQHandler
@@ -332,16 +347,16 @@ END GROUP
 
 .inits          0x080003b4       0x28
                 0x080003b4                __data_regions_array_start = .
-                0x080003b4        0x4 LONG 0x800129c LOADADDR (.data)
+                0x080003b4        0x4 LONG 0x8001540 LOADADDR (.data)
                 0x080003b8        0x4 LONG 0x20000000 ADDR (.data)
-                0x080003bc        0x4 LONG 0x20000024 (ADDR (.data) + SIZEOF (.data))
-                0x080003c0        0x4 LONG 0x800129c LOADADDR (.data_CCMRAM)
+                0x080003bc        0x4 LONG 0x20000040 (ADDR (.data) + SIZEOF (.data))
+                0x080003c0        0x4 LONG 0x8001540 LOADADDR (.data_CCMRAM)
                 0x080003c4        0x4 LONG 0x10000000 ADDR (.data_CCMRAM)
                 0x080003c8        0x4 LONG 0x10000000 (ADDR (.data_CCMRAM) + SIZEOF (.data_CCMRAM))
                 0x080003cc                __data_regions_array_end = .
                 0x080003cc                __bss_regions_array_start = .
-                0x080003cc        0x4 LONG 0x20000024 ADDR (.bss)
-                0x080003d0        0x4 LONG 0x20000034 (ADDR (.bss) + SIZEOF (.bss))
+                0x080003cc        0x4 LONG 0x20000040 ADDR (.bss)
+                0x080003d0        0x4 LONG 0x200000b0 (ADDR (.bss) + SIZEOF (.bss))
                 0x080003d4        0x4 LONG 0x10000000 ADDR (.bss_CCMRAM)
                 0x080003d8        0x4 LONG 0x10000000 (ADDR (.bss_CCMRAM) + SIZEOF (.bss_CCMRAM))
                 0x080003dc                __bss_regions_array_end = .
@@ -367,7 +382,7 @@ END GROUP
 .flashtext
  *(.flashtext .flashtext.*)
 
-.text           0x080003dc      0xec0
+.text           0x080003dc     0x1164
  *(.text .text.*)
  .text._exit    0x080003dc        0xc ./system/src/newlib/exit.o
                 0x080003dc                _exit
@@ -391,133 +406,164 @@ END GROUP
  .text.SystemCoreClockUpdate
                 0x08000480      0x100 ./system/src/cmsis/system_stm32f4xx.o
                 0x08000480                SystemCoreClockUpdate
- .text.VDH_defaultState
-                0x08000580       0x68 ./src/VehicleDoorHandle.o
-                0x08000580                VDH_defaultState
  .text.VDH_stateAllLeds
-                0x080005e8       0x36 ./src/VehicleDoorHandle.o
-                0x080005e8                VDH_stateAllLeds
- *fill*         0x0800061e        0x2 
- .text.VDH_doorUnlock
-                0x08000620       0x6c ./src/VehicleDoorHandle.o
-                0x08000620                VDH_doorUnlock
+                0x08000580       0x36 ./src/VehicleDoorHandle.o
+                0x08000580                VDH_stateAllLeds
+ *fill*         0x080005b6        0x2 
+ .text.VDH_init
+                0x080005b8       0x88 ./src/VehicleDoorHandle.o
+                0x080005b8                VDH_init
+ .text.VDH_handleUnlock
+                0x08000640       0x80 ./src/VehicleDoorHandle.o
+                0x08000640                VDH_handleUnlock
  .text.VDH_noActionState
-                0x0800068c       0x80 ./src/VehicleDoorHandle.o
-                0x0800068c                VDH_noActionState
+                0x080006c0       0x9c ./src/VehicleDoorHandle.o
+                0x080006c0                VDH_noActionState
  .text.VDH_doorIsClosed
-                0x0800070c       0x4c ./src/VehicleDoorHandle.o
-                0x0800070c                VDH_doorIsClosed
- .text.main     0x08000758      0x170 ./src/main.o
-                0x08000758                main
+                0x0800075c       0x50 ./src/VehicleDoorHandle.o
+                0x0800075c                VDH_doorIsClosed
+ .text.VDH_doorButtonPressed
+                0x080007ac       0x74 ./src/VehicleDoorHandle.o
+                0x080007ac                VDH_doorButtonPressed
+ .text.VDH_FlagInit
+                0x08000820       0x58 ./src/VehicleDoorHandle.o
+                0x08000820                VDH_FlagInit
+ .text.main     0x08000878      0x1b4 ./src/main.o
+                0x08000878                main
  .text.Rcc_Init
-                0x080008c8       0x1c ./Rcc/Rcc.o
-                0x080008c8                Rcc_Init
+                0x08000a2c       0x1c ./Rcc/Rcc.o
+                0x08000a2c                Rcc_Init
  .text.Rcc_Enable
-                0x080008e4       0xa8 ./Rcc/Rcc.o
-                0x080008e4                Rcc_Enable
+                0x08000a48       0xa8 ./Rcc/Rcc.o
+                0x08000a48                Rcc_Enable
  .text.LED_Init
-                0x0800098c       0x34 ./Led/Led.o
-                0x0800098c                LED_Init
+                0x08000af0       0x34 ./Led/Led.o
+                0x08000af0                LED_Init
  .text.LED_Activate
-                0x080009c0       0x26 ./Led/Led.o
-                0x080009c0                LED_Activate
+                0x08000b24       0x26 ./Led/Led.o
+                0x08000b24                LED_Activate
  .text.LED_Toggle
-                0x080009e6       0x40 ./Led/Led.o
-                0x080009e6                LED_Toggle
- *fill*         0x08000a26        0x2 
+                0x08000b4a       0x40 ./Led/Led.o
+                0x08000b4a                LED_Toggle
+ *fill*         0x08000b8a        0x2 
  .text.Gpio_ConfigPin
-                0x08000a28       0xb8 ./Gpio/Gpio.o
-                0x08000a28                Gpio_ConfigPin
+                0x08000b8c       0xb8 ./Gpio/Gpio.o
+                0x08000b8c                Gpio_ConfigPin
  .text.GPIO_WritePinValue
-                0x08000ae0       0x78 ./Gpio/Gpio.o
-                0x08000ae0                GPIO_WritePinValue
+                0x08000c44       0x78 ./Gpio/Gpio.o
+                0x08000c44                GPIO_WritePinValue
  .text.GPIO_ReadPinState
-                0x08000b58       0xa0 ./Gpio/Gpio.o
-                0x08000b58                GPIO_ReadPinState
+                0x08000cbc       0xa0 ./Gpio/Gpio.o
+                0x08000cbc                GPIO_ReadPinState
  .text.GPT_Init
-                0x08000bf8       0x16 ./GPT/gpt.o
-                0x08000bf8                GPT_Init
- *fill*         0x08000c0e        0x2 
+                0x08000d5c       0x7a ./GPT/gpt.o
+                0x08000d5c                GPT_Init
+ *fill*         0x08000dd6        0x2 
  .text.GPT_StartTimer
-                0x08000c10       0x4c ./GPT/gpt.o
-                0x08000c10                GPT_StartTimer
+                0x08000dd8       0x40 ./GPT/gpt.o
+                0x08000dd8                GPT_StartTimer
+ .text.GPT_CheckTimeIsElapsed
+                0x08000e18       0x8c ./GPT/gpt.o
+                0x08000e18                GPT_CheckTimeIsElapsed
  .text.GPT_GetElapsedTime
-                0x08000c5c       0x12 ./GPT/gpt.o
-                0x08000c5c                GPT_GetElapsedTime
- *fill*         0x08000c6e        0x2 
- .text.delay_ms
-                0x08000c70       0x58 ./Delay/Delay.o
-                0x08000c70                delay_ms
+                0x08000ea4       0x5c ./GPT/gpt.o
+                0x08000ea4                GPT_GetElapsedTime
+ .text.Exti_Init
+                0x08000f00      0x214 ./External_Interrupt/ExtI.o
+                0x08000f00                Exti_Init
+ .text.Exti_Enable
+                0x08001114       0x2c ./External_Interrupt/ExtI.o
+                0x08001114                Exti_Enable
+ .text.Exti_Disable
+                0x08001140       0x30 ./External_Interrupt/ExtI.o
+                0x08001140                Exti_Disable
+ .text.Exti_HandlerPendingFlag
+                0x08001170       0x2c ./External_Interrupt/ExtI.o
+                0x08001170                Exti_HandlerPendingFlag
+ .text.EXTI0_IRQHandler
+                0x0800119c       0x14 ./External_Interrupt/ExtI.o
+                0x0800119c                EXTI0_IRQHandler
+ .text.EXTI1_IRQHandler
+                0x080011b0       0x14 ./External_Interrupt/ExtI.o
+                0x080011b0                EXTI1_IRQHandler
+ .text.EXTI2_IRQHandler
+                0x080011c4       0x14 ./External_Interrupt/ExtI.o
+                0x080011c4                EXTI2_IRQHandler
+ .text.EXTI3_IRQHandler
+                0x080011d8       0x14 ./External_Interrupt/ExtI.o
+                0x080011d8                EXTI3_IRQHandler
+ .text.EXTI4_IRQHandler
+                0x080011ec       0x14 ./External_Interrupt/ExtI.o
+                0x080011ec                EXTI4_IRQHandler
+ .text.EXTI9_5_IRQHandler
+                0x08001200       0xa8 ./External_Interrupt/ExtI.o
+                0x08001200                EXTI9_5_IRQHandler
+ .text.EXTI15_10_IRQHandler
+                0x080012a8       0xcc ./External_Interrupt/ExtI.o
+                0x080012a8                EXTI15_10_IRQHandler
+ .text.PVD_IRQHandler
+                0x08001374       0x14 ./External_Interrupt/ExtI.o
+                0x08001374                PVD_IRQHandler
+ .text.RTC_Alarm_IRQHandler
+                0x08001388       0x14 ./External_Interrupt/ExtI.o
+                0x08001388                RTC_Alarm_IRQHandler
+ .text.OTG_FS_WKUP_IRQHandler
+                0x0800139c       0x14 ./External_Interrupt/ExtI.o
+                0x0800139c                OTG_FS_WKUP_IRQHandler
+ .text.TAMP_STAMP_IRQHandler
+                0x080013b0       0x14 ./External_Interrupt/ExtI.o
+                0x080013b0                TAMP_STAMP_IRQHandler
+ .text.RTC_WKUP_IRQHandler
+                0x080013c4       0x14 ./External_Interrupt/ExtI.o
+                0x080013c4                RTC_WKUP_IRQHandler
  .text.BUTTON_Init
-                0x08000cc8       0x48 ./Button/Button.o
-                0x08000cc8                BUTTON_Init
+                0x080013d8       0x48 ./Button/Button.o
+                0x080013d8                BUTTON_Init
  .text.BUTTON_ReadState
-                0x08000d10       0x80 ./Button/Button.o
-                0x08000d10                BUTTON_ReadState
- .text          0x08000d90      0x21c c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_addsubsf3.o)
-                0x08000d90                __aeabi_frsub
-                0x08000d98                __subsf3
-                0x08000d98                __aeabi_fsub
-                0x08000d9c                __aeabi_fadd
-                0x08000d9c                __addsf3
-                0x08000efc                __aeabi_ui2f
-                0x08000efc                __floatunsisf
-                0x08000f04                __aeabi_i2f
-                0x08000f04                __floatsisf
-                0x08000f20                __aeabi_ul2f
-                0x08000f20                __floatundisf
-                0x08000f30                __aeabi_l2f
-                0x08000f30                __floatdisf
- .text          0x08000fac      0x2a0 c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_muldivsf3.o)
-                0x08000fac                __mulsf3
-                0x08000fac                __aeabi_fmul
-                0x08001114                __aeabi_fdiv
-                0x08001114                __divsf3
- .text          0x0800124c       0x40 c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_fixunssfsi.o)
-                0x0800124c                __fixunssfsi
-                0x0800124c                __aeabi_f2uiz
+                0x08001420      0x110 ./Button/Button.o
+                0x08001420                BUTTON_ReadState
  *(.rodata .rodata.* .constdata .constdata.*)
  .rodata.AHBPrescTable
-                0x0800128c       0x10 ./system/src/cmsis/system_stm32f4xx.o
-                0x0800128c                AHBPrescTable
+                0x08001530       0x10 ./system/src/cmsis/system_stm32f4xx.o
+                0x08001530                AHBPrescTable
  *(vtable)
  *(.eh_frame*)
  *(.glue_7)
- .glue_7        0x0800129c        0x0 linker stubs
+ .glue_7        0x08001540        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x0800129c        0x0 linker stubs
+ .glue_7t       0x08001540        0x0 linker stubs
 
-.vfp11_veneer   0x0800129c        0x0
- .vfp11_veneer  0x0800129c        0x0 linker stubs
+.vfp11_veneer   0x08001540        0x0
+ .vfp11_veneer  0x08001540        0x0 linker stubs
 
-.v4_bx          0x0800129c        0x0
- .v4_bx         0x0800129c        0x0 linker stubs
+.v4_bx          0x08001540        0x0
+ .v4_bx         0x08001540        0x0 linker stubs
 
-.iplt           0x0800129c        0x0
- .iplt          0x0800129c        0x0 ./system/src/newlib/exit.o
+.iplt           0x08001540        0x0
+ .iplt          0x08001540        0x0 ./system/src/newlib/exit.o
 
-.rel.dyn        0x0800129c        0x0
- .rel.iplt      0x0800129c        0x0 ./system/src/newlib/exit.o
+.rel.dyn        0x08001540        0x0
+ .rel.iplt      0x08001540        0x0 ./system/src/newlib/exit.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x0800129c                . = ALIGN (0x4)
-                0x0800129c                __exidx_start = .
+                0x08001540                . = ALIGN (0x4)
+                0x08001540                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x0800129c                __exidx_end = .
-                0x0800129c                . = ALIGN (0x4)
-                0x0800129c                _etext = .
-                0x0800129c                __etext = .
+                0x08001540                __exidx_end = .
+                0x08001540                . = ALIGN (0x4)
+                0x08001540                _etext = .
+                0x08001540                __etext = .
 
-.data_CCMRAM    0x10000000        0x0 load address 0x0800129c
+.data_CCMRAM    0x10000000        0x0 load address 0x08001540
  FILL mask 0xff
  *(.data.CCMRAM .data.CCMRAM.*)
                 0x10000000                . = ALIGN (0x4)
-                0x0800129c                _sidata = LOADADDR (.data)
+                0x08001540                _sidata = LOADADDR (.data)
 
-.data           0x20000000       0x24 load address 0x0800129c
+.data           0x20000000       0x40 load address 0x08001540
  FILL mask 0xff
                 0x20000000                _sdata = .
                 0x20000000                __data_start__ = .
@@ -527,78 +573,87 @@ END GROUP
  .data.SystemCoreClock
                 0x20000008        0x4 ./system/src/cmsis/system_stm32f4xx.o
                 0x20000008                SystemCoreClock
- .data.end_action
-                0x2000000c        0x1 ./src/main.o
-                0x2000000c                end_action
- .data.handle   0x2000000d        0x1 ./src/main.o
-                0x2000000d                handle
- .data.door     0x2000000e        0x1 ./src/main.o
-                0x2000000e                door
- .data.timer_10SecFlag
-                0x2000000f        0x1 ./src/main.o
-                0x2000000f                timer_10SecFlag
+ .data.Timer    0x2000000c        0x8 ./src/main.o
+                0x2000000c                Timer
  .data.gpioAddresses
-                0x20000010       0x14 ./Gpio/Gpio.o
-                0x20000010                gpioAddresses
+                0x20000014       0x14 ./Gpio/Gpio.o
+                0x20000014                gpioAddresses
+ .data.line     0x20000028       0x17 ./External_Interrupt/ExtI.o
+                0x20000028                line
+ .data.first_read.0
+                0x2000003f        0x1 ./Button/Button.o
  *(.data_end .data_end.*)
-                0x20000024                . = ALIGN (0x4)
-                0x20000024                _edata = .
-                0x20000024                __data_end__ = .
+                0x20000040                . = ALIGN (0x4)
+                0x20000040                _edata = .
+                0x20000040                __data_end__ = .
 
-.igot.plt       0x20000024        0x0 load address 0x080012c0
- .igot.plt      0x20000024        0x0 ./system/src/newlib/exit.o
+.igot.plt       0x20000040        0x0 load address 0x08001580
+ .igot.plt      0x20000040        0x0 ./system/src/newlib/exit.o
 
 .bss_CCMRAM     0x10000000        0x0
  *(.bss.CCMRAM .bss.CCMRAM.*)
 
-.bss            0x20000024       0x10
-                0x20000024                __bss_start__ = .
-                0x20000024                _sbss = .
+.bss            0x20000040       0x70
+                0x20000040                __bss_start__ = .
+                0x20000040                _sbss = .
  *(.bss_begin .bss_begin.*)
  *(.bss .bss.*)
- .bss.name.0    0x20000024        0x1 ./system/src/newlib/syscalls.o
- .bss.door_action
-                0x20000025        0x1 ./src/VehicleDoorHandle.o
-                0x20000025                door_action
+ .bss.name.0    0x20000040        0x1 ./system/src/newlib/syscalls.o
  .bss.num_of_ticks.1
-                0x20000026        0x1 ./src/VehicleDoorHandle.o
+                0x20000041        0x1 ./src/VehicleDoorHandle.o
  .bss.num_of_ticks.0
-                0x20000027        0x1 ./src/VehicleDoorHandle.o
- .bss.doorUnlock_action
-                0x20000028        0x1 ./src/main.o
-                0x20000028                doorUnlock_action
- *fill*         0x20000029        0x3 
+                0x20000042        0x1 ./src/VehicleDoorHandle.o
+ *fill*         0x20000043        0x1 
  .bss.first_time
-                0x2000002c        0x4 ./src/main.o
-                0x2000002c                first_time
- .bss.g_flag    0x20000030        0x1 ./GPT/gpt.o
-                0x20000030                g_flag
- *fill*         0x20000031        0x1 
+                0x20000044        0x4 ./src/main.o
+                0x20000044                first_time
+ .bss.allFlags  0x20000048        0x1 ./src/main.o
+                0x20000048                allFlags
+ .bss.g_flag    0x20000049        0x1 ./GPT/gpt.o
+                0x20000049                g_flag
+ .bss.Counting_UpDown
+                0x2000004a        0x1 ./GPT/gpt.o
+                0x2000004a                Counting_UpDown
+ *fill*         0x2000004b        0x1 
+ .bss.handlerPointer
+                0x2000004c       0x58 ./External_Interrupt/ExtI.o
+                0x2000004c                handlerPointer
+ .bss.timerIsOn
+                0x200000a4        0x1 ./Button/Button.o
+                0x200000a4                timerIsOn
+ *fill*         0x200000a5        0x3 
+ .bss.BUTTON_firstTime
+                0x200000a8        0x4 ./Button/Button.o
+                0x200000a8                BUTTON_firstTime
  .bss.g_buttonsFlags
-                0x20000032        0x2 ./Button/Button.o
-                0x20000032                g_buttonsFlags
+                0x200000ac        0x2 ./Button/Button.o
+                0x200000ac                g_buttonsFlags
+ .bss.firstRead_flag
+                0x200000ae        0x1 ./Button/Button.o
+                0x200000ae                firstRead_flag
  *(COMMON)
  *(.bss_end .bss_end.*)
-                0x20000034                . = ALIGN (0x4)
-                0x20000034                __bss_end__ = .
-                0x20000034                _ebss = .
+                0x200000b0                . = ALIGN (0x4)
+ *fill*         0x200000af        0x1 
+                0x200000b0                __bss_end__ = .
+                0x200000b0                _ebss = .
 
 .noinit_CCMRAM
  *(.noinit.CCMRAM .noinit.CCMRAM.*)
 
-.noinit         0x20000034        0x0
-                0x20000034                _noinit = .
+.noinit         0x200000b0        0x0
+                0x200000b0                _noinit = .
  *(.noinit .noinit.*)
-                0x20000034                . = ALIGN (0x4)
-                0x20000034                _end_noinit = .
+                0x200000b0                . = ALIGN (0x4)
+                0x200000b0                _end_noinit = .
                 [!provide]                PROVIDE (end = _end_noinit)
                 [!provide]                PROVIDE (_end = _end_noinit)
                 [!provide]                PROVIDE (__end = _end_noinit)
                 [!provide]                PROVIDE (__end__ = _end_noinit)
 
-._check_stack   0x20000034      0x100
-                0x20000134                . = (. + _Minimum_Stack_Size)
- *fill*         0x20000034      0x100 
+._check_stack   0x200000b0      0x100
+                0x200001b0                . = (. + _Minimum_Stack_Size)
+ *fill*         0x200000b0      0x100 
 
 .b1text
  *(.b1text)
@@ -660,7 +715,7 @@ END GROUP
  .comment       0x00000049       0x4a ./Led/Led.o
  .comment       0x00000049       0x4a ./Gpio/Gpio.o
  .comment       0x00000049       0x4a ./GPT/gpt.o
- .comment       0x00000049       0x4a ./Delay/Delay.o
+ .comment       0x00000049       0x4a ./External_Interrupt/ExtI.o
  .comment       0x00000049       0x4a ./Button/Button.o
 
 .ARM.attributes
@@ -694,15 +749,9 @@ END GROUP
  .ARM.attributes
                 0x00000256       0x2e ./GPT/gpt.o
  .ARM.attributes
-                0x00000284       0x2e ./Delay/Delay.o
+                0x00000284       0x2e ./External_Interrupt/ExtI.o
  .ARM.attributes
                 0x000002b2       0x2e ./Button/Button.o
- .ARM.attributes
-                0x000002e0       0x1e c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_addsubsf3.o)
- .ARM.attributes
-                0x000002fe       0x1e c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_muldivsf3.o)
- .ARM.attributes
-                0x0000031c       0x1e c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_fixunssfsi.o)
 
 .debug
  *(.debug)
@@ -716,7 +765,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x328
+.debug_aranges  0x00000000      0x3b0
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x28 ./system/src/newlib/exit.o
@@ -735,26 +784,26 @@ END GROUP
  .debug_aranges
                 0x00000190       0x20 ./system/src/cmsis/vectors_stm32f401xe.o
  .debug_aranges
-                0x000001b0       0x40 ./src/VehicleDoorHandle.o
+                0x000001b0       0x50 ./src/VehicleDoorHandle.o
  .debug_aranges
-                0x000001f0       0x20 ./src/main.o
+                0x00000200       0x20 ./src/main.o
  .debug_aranges
-                0x00000210       0x30 ./Rcc/Rcc.o
+                0x00000220       0x30 ./Rcc/Rcc.o
  .debug_aranges
-                0x00000240       0x30 ./Led/Led.o
+                0x00000250       0x30 ./Led/Led.o
  .debug_aranges
-                0x00000270       0x30 ./Gpio/Gpio.o
+                0x00000280       0x30 ./Gpio/Gpio.o
  .debug_aranges
-                0x000002a0       0x40 ./GPT/gpt.o
+                0x000002b0       0x40 ./GPT/gpt.o
  .debug_aranges
-                0x000002e0       0x20 ./Delay/Delay.o
+                0x000002f0       0x98 ./External_Interrupt/ExtI.o
  .debug_aranges
-                0x00000300       0x28 ./Button/Button.o
+                0x00000388       0x28 ./Button/Button.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x22c6
+.debug_info     0x00000000     0x304e
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000       0xd5 ./system/src/newlib/exit.o
  .debug_info    0x000000d5      0x3fc ./system/src/newlib/startup.o
@@ -764,16 +813,16 @@ END GROUP
  .debug_info    0x00000b67      0x29a ./system/src/cortexm/reset-hardware.o
  .debug_info    0x00000e01      0x52c ./system/src/cmsis/system_stm32f4xx.o
  .debug_info    0x0000132d       0xca ./system/src/cmsis/vectors_stm32f401xe.o
- .debug_info    0x000013f7      0x21b ./src/VehicleDoorHandle.o
- .debug_info    0x00001612      0x1d0 ./src/main.o
- .debug_info    0x000017e2      0x12a ./Rcc/Rcc.o
- .debug_info    0x0000190c      0x1a6 ./Led/Led.o
- .debug_info    0x00001ab2      0x36d ./Gpio/Gpio.o
- .debug_info    0x00001e1f      0x26b ./GPT/gpt.o
- .debug_info    0x0000208a       0xd3 ./Delay/Delay.o
- .debug_info    0x0000215d      0x169 ./Button/Button.o
+ .debug_info    0x000013f7      0x54e ./src/VehicleDoorHandle.o
+ .debug_info    0x00001945      0x47e ./src/main.o
+ .debug_info    0x00001dc3      0x12a ./Rcc/Rcc.o
+ .debug_info    0x00001eed      0x1e8 ./Led/Led.o
+ .debug_info    0x000020d5      0x36d ./Gpio/Gpio.o
+ .debug_info    0x00002442      0x3a8 ./GPT/gpt.o
+ .debug_info    0x000027ea      0x45e ./External_Interrupt/ExtI.o
+ .debug_info    0x00002c48      0x406 ./Button/Button.o
 
-.debug_abbrev   0x00000000      0xcc0
+.debug_abbrev   0x00000000      0xf26
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0xab ./system/src/newlib/exit.o
  .debug_abbrev  0x000000ab      0x15c ./system/src/newlib/startup.o
@@ -783,16 +832,16 @@ END GROUP
  .debug_abbrev  0x000004a4       0xf5 ./system/src/cortexm/reset-hardware.o
  .debug_abbrev  0x00000599      0x113 ./system/src/cmsis/system_stm32f4xx.o
  .debug_abbrev  0x000006ac       0xa2 ./system/src/cmsis/vectors_stm32f401xe.o
- .debug_abbrev  0x0000074e       0xc8 ./src/VehicleDoorHandle.o
- .debug_abbrev  0x00000816       0x97 ./src/main.o
- .debug_abbrev  0x000008ad       0x86 ./Rcc/Rcc.o
- .debug_abbrev  0x00000933       0xa2 ./Led/Led.o
- .debug_abbrev  0x000009d5       0xfb ./Gpio/Gpio.o
- .debug_abbrev  0x00000ad0       0xe0 ./GPT/gpt.o
- .debug_abbrev  0x00000bb0       0x6a ./Delay/Delay.o
- .debug_abbrev  0x00000c1a       0xa6 ./Button/Button.o
+ .debug_abbrev  0x0000074e      0x18e ./src/VehicleDoorHandle.o
+ .debug_abbrev  0x000008dc      0x10d ./src/main.o
+ .debug_abbrev  0x000009e9       0x86 ./Rcc/Rcc.o
+ .debug_abbrev  0x00000a6f       0xab ./Led/Led.o
+ .debug_abbrev  0x00000b1a       0xfb ./Gpio/Gpio.o
+ .debug_abbrev  0x00000c15       0xfc ./GPT/gpt.o
+ .debug_abbrev  0x00000d11      0x122 ./External_Interrupt/ExtI.o
+ .debug_abbrev  0x00000e33       0xf3 ./Button/Button.o
 
-.debug_line     0x00000000     0x19c0
+.debug_line     0x00000000     0x22f1
  *(.debug_line)
  .debug_line    0x00000000      0x195 ./system/src/newlib/exit.o
  .debug_line    0x00000195      0x235 ./system/src/newlib/startup.o
@@ -802,16 +851,16 @@ END GROUP
  .debug_line    0x00000879      0x172 ./system/src/cortexm/reset-hardware.o
  .debug_line    0x000009eb      0x1d4 ./system/src/cmsis/system_stm32f4xx.o
  .debug_line    0x00000bbf       0x63 ./system/src/cmsis/vectors_stm32f401xe.o
- .debug_line    0x00000c22      0x258 ./src/VehicleDoorHandle.o
- .debug_line    0x00000e7a      0x24c ./src/main.o
- .debug_line    0x000010c6      0x12f ./Rcc/Rcc.o
- .debug_line    0x000011f5      0x19a ./Led/Led.o
- .debug_line    0x0000138f      0x1fa ./Gpio/Gpio.o
- .debug_line    0x00001589      0x17e ./GPT/gpt.o
- .debug_line    0x00001707       0xfc ./Delay/Delay.o
- .debug_line    0x00001803      0x1bd ./Button/Button.o
+ .debug_line    0x00000c22      0x52b ./src/VehicleDoorHandle.o
+ .debug_line    0x0000114d      0x3e6 ./src/main.o
+ .debug_line    0x00001533      0x12f ./Rcc/Rcc.o
+ .debug_line    0x00001662      0x1a3 ./Led/Led.o
+ .debug_line    0x00001805      0x1fc ./Gpio/Gpio.o
+ .debug_line    0x00001a01      0x23a ./GPT/gpt.o
+ .debug_line    0x00001c3b      0x41e ./External_Interrupt/ExtI.o
+ .debug_line    0x00002059      0x298 ./Button/Button.o
 
-.debug_frame    0x00000000      0x840
+.debug_frame    0x00000000      0x9bc
  *(.debug_frame)
  .debug_frame   0x00000000       0x50 ./system/src/newlib/exit.o
  .debug_frame   0x00000050       0xc8 ./system/src/newlib/startup.o
@@ -821,19 +870,16 @@ END GROUP
  .debug_frame   0x0000031c       0x44 ./system/src/cortexm/reset-hardware.o
  .debug_frame   0x00000360       0x58 ./system/src/cmsis/system_stm32f4xx.o
  .debug_frame   0x000003b8       0x28 ./system/src/cmsis/vectors_stm32f401xe.o
- .debug_frame   0x000003e0       0xbc ./src/VehicleDoorHandle.o
- .debug_frame   0x0000049c       0x2c ./src/main.o
- .debug_frame   0x000004c8       0x80 ./Rcc/Rcc.o
- .debug_frame   0x00000548       0x7c ./Led/Led.o
- .debug_frame   0x000005c4       0x8c ./Gpio/Gpio.o
- .debug_frame   0x00000650       0xb8 ./GPT/gpt.o
- .debug_frame   0x00000708       0x38 ./Delay/Delay.o
- .debug_frame   0x00000740       0x58 ./Button/Button.o
- .debug_frame   0x00000798       0x4c c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_addsubsf3.o)
- .debug_frame   0x000007e4       0x38 c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_muldivsf3.o)
- .debug_frame   0x0000081c       0x24 c:/users/anwar/desktop/sbme 2024/year 3 (2022-2023)/semester 2/embedded systems/arm gcc/10 2021.10/bin/../lib/gcc/arm-none-eabi/10.3.1/thumb/v7e-m/nofp\libgcc.a(_arm_fixunssfsi.o)
+ .debug_frame   0x000003e0       0xf8 ./src/VehicleDoorHandle.o
+ .debug_frame   0x000004d8       0x2c ./src/main.o
+ .debug_frame   0x00000504       0x80 ./Rcc/Rcc.o
+ .debug_frame   0x00000584       0x7c ./Led/Led.o
+ .debug_frame   0x00000600       0x8c ./Gpio/Gpio.o
+ .debug_frame   0x0000068c       0xd8 ./GPT/gpt.o
+ .debug_frame   0x00000764      0x200 ./External_Interrupt/ExtI.o
+ .debug_frame   0x00000964       0x58 ./Button/Button.o
 
-.debug_str      0x00000000      0xe60
+.debug_str      0x00000000     0x13a2
  *(.debug_str)
  .debug_str     0x00000000      0x1de ./system/src/newlib/exit.o
                                 0x217 (size before relaxing)
@@ -851,22 +897,22 @@ END GROUP
                                 0x3d0 (size before relaxing)
  .debug_str     0x00000783       0x59 ./system/src/cmsis/vectors_stm32f401xe.o
                                 0x227 (size before relaxing)
- .debug_str     0x000007dc      0x1a8 ./src/VehicleDoorHandle.o
-                                0x377 (size before relaxing)
- .debug_str     0x00000984       0x94 ./src/main.o
-                                0x359 (size before relaxing)
- .debug_str     0x00000a18       0x56 ./Rcc/Rcc.o
+ .debug_str     0x000007dc      0x472 ./src/VehicleDoorHandle.o
+                                0x647 (size before relaxing)
+ .debug_str     0x00000c4e       0x62 ./src/main.o
+                                0x55e (size before relaxing)
+ .debug_str     0x00000cb0       0x56 ./Rcc/Rcc.o
                                 0x246 (size before relaxing)
- .debug_str     0x00000a6e       0xc7 ./Led/Led.o
-                                0x2a9 (size before relaxing)
- .debug_str     0x00000b35      0x148 ./Gpio/Gpio.o
+ .debug_str     0x00000d06       0xd1 ./Led/Led.o
+                                0x2ca (size before relaxing)
+ .debug_str     0x00000dd7      0x139 ./Gpio/Gpio.o
                                 0x3d8 (size before relaxing)
- .debug_str     0x00000c7d      0x168 ./GPT/gpt.o
-                                0x35e (size before relaxing)
- .debug_str     0x00000de5       0x35 ./Delay/Delay.o
-                                0x20f (size before relaxing)
- .debug_str     0x00000e1a       0x46 ./Button/Button.o
-                                0x2b3 (size before relaxing)
+ .debug_str     0x00000f10       0xdb ./GPT/gpt.o
+                                0x42e (size before relaxing)
+ .debug_str     0x00000feb      0x2e6 ./External_Interrupt/ExtI.o
+                                0x554 (size before relaxing)
+ .debug_str     0x000012d1       0xd1 ./Button/Button.o
+                                0x510 (size before relaxing)
 
 .debug_loc
  *(.debug_loc)
@@ -888,7 +934,7 @@ END GROUP
 OUTPUT(VehicleDoorHandle_ControlUnit.elf elf32-littlearm)
 LOAD linker stubs
 
-.debug_ranges   0x00000000      0x228
+.debug_ranges   0x00000000      0x2b0
  .debug_ranges  0x00000000       0x18 ./system/src/newlib/exit.o
  .debug_ranges  0x00000018       0x30 ./system/src/newlib/startup.o
  .debug_ranges  0x00000048       0x20 ./system/src/newlib/syscalls.o
@@ -897,11 +943,11 @@ LOAD linker stubs
  .debug_ranges  0x000000f0       0x18 ./system/src/cortexm/reset-hardware.o
  .debug_ranges  0x00000108       0x18 ./system/src/cmsis/system_stm32f4xx.o
  .debug_ranges  0x00000120       0x10 ./system/src/cmsis/vectors_stm32f401xe.o
- .debug_ranges  0x00000130       0x30 ./src/VehicleDoorHandle.o
- .debug_ranges  0x00000160       0x10 ./src/main.o
- .debug_ranges  0x00000170       0x20 ./Rcc/Rcc.o
- .debug_ranges  0x00000190       0x20 ./Led/Led.o
- .debug_ranges  0x000001b0       0x20 ./Gpio/Gpio.o
- .debug_ranges  0x000001d0       0x30 ./GPT/gpt.o
- .debug_ranges  0x00000200       0x10 ./Delay/Delay.o
- .debug_ranges  0x00000210       0x18 ./Button/Button.o
+ .debug_ranges  0x00000130       0x40 ./src/VehicleDoorHandle.o
+ .debug_ranges  0x00000170       0x10 ./src/main.o
+ .debug_ranges  0x00000180       0x20 ./Rcc/Rcc.o
+ .debug_ranges  0x000001a0       0x20 ./Led/Led.o
+ .debug_ranges  0x000001c0       0x20 ./Gpio/Gpio.o
+ .debug_ranges  0x000001e0       0x30 ./GPT/gpt.o
+ .debug_ranges  0x00000210       0x88 ./External_Interrupt/ExtI.o
+ .debug_ranges  0x00000298       0x18 ./Button/Button.o

@@ -3,6 +3,7 @@
  *  Project		: Vehicle Door Handle Control Unit
  * 	File Name	: Led.h
  *	Team 		: 20
+ *	Members		: Abdelrahman Yasser - Omar Ahmed Anwar - Mo'men Mohamed - Neveen Mohamed
  *  ===================================================================================================================================
  */
 
@@ -13,12 +14,14 @@
 #include "Gpio.h"
 /*------------------------------------------------------*/
 
-/*---------------------- Definitions ----------------------*/
-#define LED_ON		HIGH
-#define LED_OFF		LOW
-/*------------------------------------------------------*/
+/*---------------------- Defined types ------------------*/
+typedef enum{
+	LED_OFF = LOW,
+	LED_ON  = HIGH,
+}LED_States;
+/*--------------------------------------------------------*/
 
-/*---------------------- Functions Prototype ----------------------*/
+/*------------------ Functions Prototype -----------------*/
 
 /*
  * description:
@@ -37,7 +40,7 @@ void LED_Init(uint8 portName, uint8 pinNum);
  * 		--> state: 		Activate the led HIGH or LOW.
  * 	Function to activate the LED corresponding to the state.
  */
-void LED_Activate(uint8 portName, uint8 pinNum, uint8 state);
+void LED_Activate(uint8 portName, uint8 pinNum, LED_States state);
 
 /*
  * description:

@@ -3,6 +3,7 @@
  *  Project		: Vehicle Door Handle Control Unit
  * 	File Name	: Gpio.c
  *	Team 		: 20
+ *	Members		: Abdelrahman Yasser - Omar Ahmed Anwar - Mo'men Mohamed - Neveen Mohamed
  *  ===================================================================================================================================
  */
 
@@ -35,7 +36,8 @@ uint32 gpioAddresses[5] = {GPIOA_BASE_ADDR,
  */
 void Gpio_ConfigPin(uint8 PortName, uint8 PinNum,
 		Gpio_PinMode PinMode,Gpio_DefaultState DefaultState,
-		Gpio_PullState pullState) {
+		Gpio_PullState pullState)
+{
 
 	uint8 portID = PortName - GPIO_A;
 
@@ -66,7 +68,7 @@ void Gpio_ConfigPin(uint8 PortName, uint8 PinNum,
  * 								if the pin was input  --> NOK
  */
 Gpio_WriteDataFlag GPIO_WritePinValue(uint8 PortName,
-		uint8 PinNum, Gpio_Data Data) {
+		uint8 PinNum, Gpio_Data Data){
 
 	uint8 portID = PortName - GPIO_A;
 
