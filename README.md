@@ -58,8 +58,8 @@ of the following components:
      2. Reads the state of the button and also implements a debouncing algorithm to filter out spurious signals that can occur when the button is 
         pressed. The algorithm uses a **timer** OR **Delay** to measure the time between button presses and checks the button state twice to 
         ensure that it is stable. If the button state is stable, the function updates the button  flag and returns the button state.   
-   ![timer-delay](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/18d1349a-a7c7-478c-a3ce-a7d119af351e)
-  - ![delay](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/bba9454d-013e-4b66-92f7-48dda989ed78)
+    ![timer-delay](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/18d1349a-a7c7-478c-a3ce-a7d119af351e)
+    ![delay](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/bba9454d-013e-4b66-92f7-48dda989ed78)
       
 <br>   
 - [x] **Optimized The Use Of Flag Variables By Using Bit Field Structure**:
