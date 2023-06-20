@@ -47,18 +47,26 @@ of the following components:
    - STM32 Timer Assembly (Block Diagram):
    - ![stm counter diagram](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/552de5cc-d0df-48bc-8ce3-130a76971bfc)
    <br>
-- [x] **Optimized the use of flag variables by Using Bitwise Operations**:
+- [x] **Optimized The Use Of Flag Variables By Using Bit Field Structure**:
   - Using a single variable to represent multiple flags in an embedded system can reduce memory usage and simplify code, while also allowing for 
     simultaneous operations on multiple flags. However, proper synchronization and access control must be ensured to avoid issues.
     
   - ![bits](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/31c9d56f-ee91-4d47-b47b-f8ac923aef14)
+   <br>
+- [x] **Solved The Debouncing Problem Using Delay and Timers"**:
+  - Button bouncing is a common problem in embedded systems that can be solved by using a delay. This delay can be implemented using a for-loop 
+    or a timer in a GPT. The for-loop method is simple but can consume processing power, while the timer approach is more efficient and precise 
+    but requires more setup. The choice between the two depends on the system's specific requirements.
+  -   ![debouncing](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/495f651a-0e26-402e-8738-a76ce9a0e4df)
 
+  - ![timer-delay](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/18d1349a-a7c7-478c-a3ce-a7d119af351e)
+  - ![delay](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/bba9454d-013e-4b66-92f7-48dda989ed78)
       
 
 ***
 ### Project Structure
 
-- **The System Layers Design**:
+- **The system follows Layered Architecture Style**:
   ![layers](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/73500759-4c90-41b2-8991-2675331aeaf0)
 
 
@@ -74,43 +82,46 @@ of the following components:
   - Hazard Led  ( Red )
   - Ambient Led ( Blue )
 
-- **Implemented Drivers** :
+- **Structure** :
 ```
-VehicleDoorHandle_ControlUnit
-├─  Button
-│  ├─ Button.c 
-│  └─ Button.h
-├─  Delay
-│  ├─ Delay.c 
-│  └─ Delay.h
-├─  External_Interrupt
-│  ├─ ExtI.c
-│  ├─ ExtI.h
-│  └─ ExtI_Private.h
-├─  Gpio
-│  ├─ Gpio.c
-│  ├─ Gpio.h
-│  └─ Gpio_Private.h
-├─  GPT
-│  ├─ gpt.c 
-│  ├─ gpt.h
-│  └─ GPT_Private.h
-├─  Led
-│  ├─ Led.c 
-│  └─ Led.h
-├─  Lib
-│  ├─ Bit_Operations.h 
-│  ├─ Std_Types.h
-│  └─ Utils.h
-├─  Rcc
-│  ├─ Rcc.c 
-│  ├─ Rcc.h
-│  └─ Rcc_Private.h
-├─  src
-│  ├─ main.c 
-│  ├─ VehicleDoorHandle.c
-│  └─ VehicleDoorHandle.h
-
+Code
+  ├─ VehicleDoorHandle_ControlUnit
+  |  ├─  Button
+  │  |   ├─ Button.c 
+  |  │   └─ Button.h
+  |  ├─  Delay
+  |  │  ├─ Delay.c 
+  │  |  └─ Delay.h
+  |  ├─  External_Interrupt
+  │  |  ├─ ExtI.c
+  |  │  ├─ ExtI.h
+  │  |  └─ ExtI_Private.h
+  |  ├─  Gpio
+  │  |   ├─ Gpio.c
+  │  |   ├─ Gpio.h
+  │  |   └─ Gpio_Private.h
+  |  ├─  GPT
+  │  |   ├─ gpt.c 
+  │  |   ├─ gpt.h
+  │  |   └─ GPT_Private.h
+  |  ├─  Led
+  │  |   ├─ Led.c 
+  │  |   └─ Led.h
+  |  ├─  Lib
+  │  |   ├─ Bit_Operations.h 
+  │  |   ├─ Std_Types.h
+  │  |   └─ Utils.h
+  |  ├─  Rcc
+  │  |   ├─ Rcc.c 
+  │  |   ├─ Rcc.h
+  │  |   └─ Rcc_Private.h
+  |  ├─  src
+  │  |  ├─ main.c 
+  │  |  ├─ VehicleDoorHandle.c
+  |  |  └─ VehicleDoorHandle.h
+  |  └─
+  └─    
+Simulation
 README.md
 ```
 ***
