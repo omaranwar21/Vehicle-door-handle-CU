@@ -26,11 +26,11 @@ of the following components:
 **In this project, we have implemented:**
 - [x] **GPT Driver (General Purpose Timers)**:
   > It support the three basic counting modes :
-    >> `Up Counting`     : The GPT counts up from 0 to the maximum value of the counter register. When the counter reaches the 
+  >> `Up Counting`     : The GPT counts up from 0 to the maximum value of the counter register. When the counter reaches the 
                               maximum value, it overflows and starts counting from 0 again.
-    >> `Down Counting`   : The GPT counts down from the maximum value of the counter register to 0. When the counter reaches 0, it 
+  >> `Down Counting`   : The GPT counts down from the maximum value of the counter register to 0. When the counter reaches 0, it 
                               underflows and starts counting from the maximum value again. 
-    >> `Up-Down Counting`: The GPT counts up from 0 to (the maximum value of the counter register -1 ), and then counts down from the maximum 
+  >> `Up-Down Counting`: The GPT counts up from 0 to (the maximum value of the counter register -1 ), and then counts down from the maximum 
                               value to 1. When the counter reaches 0, it starts counting up again. 
    - Time Base Unit includes :
      1.  
