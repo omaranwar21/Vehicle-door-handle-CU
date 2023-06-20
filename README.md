@@ -47,20 +47,27 @@ of the following components:
    - STM32 Timer Assembly (Block Diagram):
    - ![stm counter diagram](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/552de5cc-d0df-48bc-8ce3-130a76971bfc)
    <br>
+- [x] **Implemented Button Driver Using Delay OR GPT For Debouncing Problem**:
+  - Button bouncing is a common problem in embedded systems that can be solved by using a delay. This delay can be implemented using a for-loop 
+    or a timer in a GPT. The for-loop method is simple but can consume processing power, while the timer approach is more efficient and precise 
+    but requires more setup. The choice between the two depends on the system's specific requirements.
+  - ![debouncing](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/495f651a-0e26-402e-8738-a76ce9a0e4df)
+  - It provides functions to:
+     1. Initializes a button by setting the pin as an input and configuring the pull-up resistor. It also sets a flag to indicate that the button 
+        is pressed.
+     2. Reads the state of the button and also implements a debouncing algorithm to filter out spurious signals that can occur when the button is 
+        pressed. The algorithm uses a **timer** OR **Delay** to measure the time between button presses and checks the button state twice to 
+        ensure that it is stable. If the button state is stable, the function updates the button  flag and returns the button state.   
+  - ![timer-delay](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/18d1349a-a7c7-478c-a3ce-a7d119af351e)
+  - ![delay](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/bba9454d-013e-4b66-92f7-48dda989ed78)
+      
+<br>   
 - [x] **Optimized The Use Of Flag Variables By Using Bit Field Structure**:
   - Using a single variable to represent multiple flags in an embedded system can reduce memory usage and simplify code, while also allowing for 
     simultaneous operations on multiple flags. However, proper synchronization and access control must be ensured to avoid issues.
     
   - ![bits](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/31c9d56f-ee91-4d47-b47b-f8ac923aef14)
    <br>
-- [x] **Solved The Debouncing Problem Using Delay and Timers"**:
-  - Button bouncing is a common problem in embedded systems that can be solved by using a delay. This delay can be implemented using a for-loop 
-    or a timer in a GPT. The for-loop method is simple but can consume processing power, while the timer approach is more efficient and precise 
-    but requires more setup. The choice between the two depends on the system's specific requirements.
-  -   ![debouncing](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/495f651a-0e26-402e-8738-a76ce9a0e4df)
-  - ![timer-delay](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/18d1349a-a7c7-478c-a3ce-a7d119af351e)
-  - ![delay](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/bba9454d-013e-4b66-92f7-48dda989ed78)
-      
 
 ***
 ### Project Structure
