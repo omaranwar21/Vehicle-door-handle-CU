@@ -61,7 +61,6 @@ of the following components:
     ![timer-delay](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/18d1349a-a7c7-478c-a3ce-a7d119af351e)
     ![delay](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/bba9454d-013e-4b66-92f7-48dda989ed78)
       
-<br>   
 - [x] **Optimized The Use Of Flag Variables By Using Bit Field Structure**:
   - Using a single variable to represent multiple flags in an embedded system can reduce memory usage and simplify code, while also allowing for 
     simultaneous operations on multiple flags. However, proper synchronization and access control must be ensured to avoid issues.
