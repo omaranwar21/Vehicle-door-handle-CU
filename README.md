@@ -51,7 +51,7 @@ of the following components:
   - Button bouncing is a common problem in embedded systems that can be solved by using a delay. This delay can be implemented using a for-loop 
     or a timer in a GPT. The for-loop method is simple but can consume processing power, while the timer approach is more efficient and precise 
     but requires more setup. The choice between the two depends on the system's specific requirements.
-  - ![debouncing](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/495f651a-0e26-402e-8738-a76ce9a0e4df)
+    ![debouncing](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/495f651a-0e26-402e-8738-a76ce9a0e4df)
   - It provides functions to:
      1. Initializes a button by setting the pin as an input and configuring the pull-up resistor. It also sets a flag to indicate that the button 
         is pressed.
