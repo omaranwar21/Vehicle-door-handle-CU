@@ -23,8 +23,8 @@ of the following components:
 ***
 ### Project Features
 
-**In this project, we have implemented:**
-- [x] **GPT Driver (General Purpose Timers)**:
+**In this project, we have:**
+- [x] **Implemented GPT Driver (General Purpose Timers)**:
   - It support the three basic counting modes :
       1. `Up Counting`     : The GPT counts up from 0 to the maximum value of the counter register. When the counter reaches the 
                               maximum value, it overflows and starts counting from 0 again.
@@ -46,6 +46,13 @@ of the following components:
       <br> 
    - STM32 Timer Assembly (Block Diagram):
    - ![stm counter diagram](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/552de5cc-d0df-48bc-8ce3-130a76971bfc)
+   <br>
+- [x] **Optimized the use of flag variables by Using Bitwise Operations**:
+  - Using a single variable to represent multiple flags in an embedded system can reduce memory usage and simplify code, while also allowing for 
+    simultaneous operations on multiple flags. However, proper synchronization and access control must be ensured to avoid issues.
+     ![bits](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/31c9d56f-ee91-4d47-b47b-f8ac923aef14)
+
+      
 
 ***
 ### Project Structure
@@ -60,7 +67,7 @@ of the following components:
 
 - **The System Hardware Components** :
   - STM32F401x Microcontroller
-  - Handles Push Button
+  - Handle Push Button
   - Door Push Button
   - Vehicle Led ( Green )
   - Hazard Led  ( Red )
