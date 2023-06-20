@@ -23,10 +23,16 @@ of the following components:
 ***
 ### Project Features
 
-In this project, we have implemented:
-- [x] xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx:
-  - xxxxxxxxxxxxxxxxxxx.
-
+**In this project, we have implemented:**
+- [x] **GPT Driver (General Purpose Timers)**:
+  - It support the three basic counting modes :
+       1- `Up Counting`     : The GPT counts up from 0 to the maximum value of the counter register. When the counter reaches the 
+                              maximum value, it overflows and starts counting from 0 again.
+       2- `Down Counting`   : The GPT counts down from the maximum value of the counter register to 0. When the counter reaches 0, it 
+                              underflows and starts counting from the maximum value again. 
+       3- `Up-Down Counting`: The GPT counts up from 0 to (the maximum value of the counter register -1 ), and then counts down from the maximum 
+                              value to 1. When the counter reaches 0, it starts counting up again. 
+ 
 ***
 ### Project Structure
 
