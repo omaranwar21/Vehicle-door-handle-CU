@@ -44,7 +44,8 @@ of the following components:
       3.  Checks whether the GPT has reached the specified time interval.
       4.  Returns the remaining time until the GPT overflows.
    - STM32 Timer Assembly (Block Diagram):
-![stm counter diagram](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/552de5cc-d0df-48bc-8ce3-130a76971bfc)
+   - ![stm counter diagram](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/552de5cc-d0df-48bc-8ce3-130a76971bfc)
+
 
    
 - [x] **Implemented Button Driver Using Delay OR GPT For Debouncing Problem**:
