@@ -1,21 +1,47 @@
 /*
- * Button.c
- *
- *  Created on: May 8, 2023
- *      Author: Anwar
+ * ====================================================================================================================================
+ *  Project		: Vehicle Door Handle Control Unit
+ * 	File Name	: Button.c
+ *	Team 		: 20
+ *  ===================================================================================================================================
  */
 
-
+/*------------------------------ Includes ----------------------*/
 #include "Button.h"
+/*-------------------------------------------------------------*/
 
+/*---------------------- Global Variables ----------------------*/
+/*
+ * timerIsOn is a flag to know whether the timer is on or not when using GPT
+ * for debouncing time calculation.
+ */
 BUTTON_TimerState timerIsOn = BUTTON_TimerIsOff;
 
+/*
+ * BUTTON_firstTime is a variable to hold first time for debouncing time calculations.
+ */
 uint32 BUTTON_firstTime;
 
+/*
+ * g_buttonsFlags is a set of flags for releasing the button pressing.
+ */
 uint16 g_buttonsFlags = 0;
 
+/*
+ * firstRead_flag is a flag to indicate theat the first read has been captured.
+ */
 BUTTON_FirstRead firstRead_flag = BUTTON_FirstRead_NotDone;
+/*-------------------------------------------------------------*/
 
+/*---------------------- Functions Definition ----------------------*/
+
+/*
+ * description:
+ * 	Argument(s):
+ * 		--> portName:	Button Port.
+ * 		--> pinNum: 	Button pin.
+ * 	Function to configure Port and pin of the Button.
+ */
 void BUTTON_Init(uint8 portName, uint8 pinNum){
 
 	SET_BIT(g_buttonsFlags, pinNum);
@@ -24,10 +50,18 @@ void BUTTON_Init(uint8 portName, uint8 pinNum){
 
 }
 
+/*
+ * description:
+ * 	Argument(s):
+ * 		--> portName:	Button Port.
+ * 		--> pinNum: 	Button pin.
+ * 	Function to read the state of the button whether pressed or not
+ * 	after avoiding debouncing effect.
+ */
 BUTTON_States BUTTON_ReadState(uint8 portName, uint8 pinNum){
 
 #ifdef GPT_H_
-	static BUTTON_States first_read;
+	static BUTTON_States first_read = BUTTON_FLOATING;
 
 	uint32 elapsed_time;
 
@@ -104,4 +138,4 @@ BUTTON_States BUTTON_ReadState(uint8 portName, uint8 pinNum){
 	return BUTTON_RELEASED;
 
 }
-
+/*-----------------------------------------------------------------------------*/

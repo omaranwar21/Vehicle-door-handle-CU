@@ -14,10 +14,9 @@ VDH_Flags allFlags;
 int main(void) {
 	VDH_defaultState();
 
-	GPT_StartTimer(TIM3,2000);
+//	GPT_StartTimer(TIM3,2000);
 //	Capture_Compare(TIM3);
 
-	LED_Activate(VDH_LEDS_PORT, VDH_TEST_TIMERS_LED, LED_ON);
 
 
 	while(1){
@@ -33,6 +32,7 @@ int main(void) {
 //		}
 
 		if (BUTTON_ReadState(VDH_BUTTONS_PORT, VDH_HANDLE_LOCK_UNLOCK_BUTTON) == BUTTON_PRESSED && allFlags.combinedFlags.door != VDH_DOOR_IS_OPENED) {
+		LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, LED_ON);
 
 			timerIsOn = BUTTON_TimerIsOn;
 

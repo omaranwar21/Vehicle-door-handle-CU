@@ -7,6 +7,7 @@
 
 #ifndef RCC_PRIVATE_H
 #define RCC_PRIVATE_H
+
 #include "Std_Types.h"
 #include "Utils.h"
 
