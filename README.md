@@ -31,9 +31,22 @@ of the following components:
       2. `Down Counting`   : The GPT counts down from the maximum value of the counter register to 0. When the counter reaches 0, it 
                               underflows and starts counting from the maximum value again. 
       3. `Up-Down Counting`: The GPT counts up from 0 to (the maximum value of the counter register -1 ), and then counts down from the maximum 
-                              value to 1. When the counter reaches 0, it starts counting up again. 
+                              value to 1. When the counter reaches 0, it starts counting up again.
+         <br>
    - Time Base Unit includes :
-     1.  
+      1.  Counter Register (TIMx_CNT)
+      2.  Prescaler Register (TIMx_PSC)
+      3.  Auto-Reload Register (TIMx_ARR)
+         <br>
+   - It provides functions to :
+      1.  Initializes the GPT with the specified mode and counter direction.
+      2.  Starts the GPT with the specified number of overflow ticks.
+      3.  Checks whether the GPT has reached the specified time interval.
+      4.  Returns the remaining time until the GPT overflows.
+      <br> 
+   - STM32 Timer Assembly (Block Diagram)
+     ![stm counter diagram](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/552de5cc-d0df-48bc-8ce3-130a76971bfc)
+
 
 ***
 ### Project Structure
