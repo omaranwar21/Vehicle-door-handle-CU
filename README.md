@@ -45,8 +45,8 @@ of the following components:
       4.  Returns the remaining time until the GPT overflows.
       <br> 
    - STM32 Timer Assembly (Block Diagram):
-   - ![stm counter diagram](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/552de5cc-d0df-48bc-8ce3-130a76971bfc)
-   <br>
+     ![stm counter diagram](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/552de5cc-d0df-48bc-8ce3-130a76971bfc)
+   
 - [x] **Implemented Button Driver Using Delay OR GPT For Debouncing Problem**:
   - Button bouncing is a common problem in embedded systems that can be solved by using a delay. This delay can be implemented using a for-loop 
     or a timer in a GPT. The for-loop method is simple but can consume processing power, while the timer approach is more efficient and precise 
