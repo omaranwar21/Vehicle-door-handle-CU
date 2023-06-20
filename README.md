@@ -45,7 +45,7 @@ of the following components:
       4.  Returns the remaining time until the GPT overflows.
       <br> 
    - STM32 Timer Assembly (Block Diagram):
-   -  ![stm counter diagram](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/552de5cc-d0df-48bc-8ce3-130a76971bfc)
+     ![stm counter diagram](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/552de5cc-d0df-48bc-8ce3-130a76971bfc)
 
 
 
