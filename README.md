@@ -58,7 +58,6 @@ of the following components:
     or a timer in a GPT. The for-loop method is simple but can consume processing power, while the timer approach is more efficient and precise 
     but requires more setup. The choice between the two depends on the system's specific requirements.
   -   ![debouncing](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/495f651a-0e26-402e-8738-a76ce9a0e4df)
-
   - ![timer-delay](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/18d1349a-a7c7-478c-a3ce-a7d119af351e)
   - ![delay](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/bba9454d-013e-4b66-92f7-48dda989ed78)
       
