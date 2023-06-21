@@ -7,7 +7,7 @@
 - [Application Preview](#Application-preview)
 - [Requirements to run](#Requirements-to-run)
 - [Run the project](#Run-the-project)
-- [Team]()
+- [Team](#Team)
 
 ***
 ### Introduction
@@ -175,5 +175,5 @@ Second Semester - Embedded Systems  (SBE3240) class final project created by:
 |-------------------------------------------------------|:-------:|:----:|
 | [Abdelrahman Yasser](https://github.com/Abdelrhman012)|    1    |  52  |
 | [Omar Ahmed Anwer](https://github.com/omaranwar21)    |    2    |  2   |
-| [Mo'men Mohamed](https://github.com/momen882001)      |    2    |  49  |
+| [Mo'men Mohamed](https://github.com/momen882001)      |    2    |  11  |
 | [Neveen Mohamed](https://github.com/NeveenMohamed)    |    2    |  49  |
