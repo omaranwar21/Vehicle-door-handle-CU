@@ -35,6 +35,11 @@ typedef enum
 	GPT_Up_Counting, GPT_Down_Counting, GPT_Up_Down_Counting
 }CR1_CounterDirection;
 
+/*
+ * 1) TIMx 		--> (TIM2, TIM3, TIM4, TIM5)
+ * 2) prescaler --> value added in TIMx_PSC (PSC_VALUE+1)
+ * 3) direction --> counting direction
+ */
 typedef struct{
 	TIMX_TYPE* TIMx;
 	uint16 prescaler;
@@ -44,17 +49,50 @@ typedef struct{
 
 
 /*---------------------- Functions prototype -----------------------*/
+
+/*
+ * description:
+ * 	Argument(s):
+ * 		--> Timer: an object holds selected timer, prescaler amd the mode.
+ * 	Function to initialize the GPT registers with the needed initial values passed in
+ * 	Timer object to support the needed timing actions.
+ */
 void GPT_Init(TIMx_Configue* Timer);
 
+/*
+ * description:
+ * 	Argument(s):
+ * 		--> Timer: an object holds selected timer, prescaler amd the mode.
+ * 		--> overFlowTicks: number of tickets before timer overflow and stop.
+ * 	A function to request the GPT to start and send its number of tickets before timer
+ * 	overflow and stop.
+ */
 void GPT_StartTimer(TIMx_Configue* Timer,uint32 OverFlowTicks);
 
+/*
+ * description:
+ * 	Argument(s):
+ * 		--> Timer: an object holds selected timer, prescaler amd the mode.
+ * 	A function to return (1) if an overflow occurred after the last call of GPT_StartTimer
+ * 	and (0) if no overflow occurred or GPT_StartTimer is not called from the last read.
+ */
 GPT_TimeIsElapsed GPT_CheckTimeIsElapsed(TIMx_Configue* Timer);
 
+/*
+ * description:
+ * 	Argument(s):
+ * 		--> Timer: an object holds selected timer, prescaler amd the mode.
+ * 	A function to return elapsed time.
+ */
 uint32 GPT_GetElapsedTime(TIMx_Configue* Timer);
 
+/*
+ * description:
+ * 	Argument(s):
+ * 		--> Timer: an object holds selected timer, prescaler amd the mode.
+ * 	A function to return remaining time.
+ */
 uint32 GPT_GetRemainingTime(TIMx_Configue* Timer);
 /*------------------------------------------------------------------*/
-
-
 
 #endif /* GPT_H_ */
