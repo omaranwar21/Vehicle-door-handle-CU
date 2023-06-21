@@ -1,7 +1,4 @@
 # Vehicle Door Handle Control Unit
-## Submission Video Link: 
-### https://drive.google.com/drive/folders/1lds6lJqrYm19MHjjYgQ7jdretUYX5Wrw?usp=drive_link
-
 ## Table of contents:
 - [Introduction](#introduction)
 - [Project Features](#project-features)
@@ -175,7 +172,5 @@ Second Semester - Embedded Systems  (SBE3240) class final project created by:
 
 | Team Members' Names                                   | Section | B.N. |
 |-------------------------------------------------------|:-------:|:----:|
-| [Abdelrahman Yasser](https://github.com/Abdelrhman012)|    1    |  52  |
 | [Omar Ahmed Anwer](https://github.com/omaranwar21)    |    2    |  2   |
-| [Mo'men Mohamed](https://github.com/momen882001)      |    2    |  11  |
 | [Neveen Mohamed](https://github.com/NeveenMohamed)    |    2    |  49  |
