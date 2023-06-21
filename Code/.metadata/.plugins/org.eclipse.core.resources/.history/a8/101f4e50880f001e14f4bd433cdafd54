@@ -1,0 +1,345 @@
+/*
+ * ====================================================================================================================================
+ *  Project		: Vehicle Door Handle Control Unit
+ * 	File Name	: VehicleDoorHandle.c
+ *	Team 		: 20
+ *  ===================================================================================================================================
+ */
+
+/*---------------------- Includes ------------------------*/
+#include "VehicleDoorHandle.h"
+/*---------------------------------------------------------*/
+
+/*---------------------- Externs ---------------------------*/
+extern uint32 first_time;
+
+extern VDH_Flags allFlags;
+/*------------------------------------------------------------*/
+
+/*---------------------- Functions definitions ----------------------*/
+
+/*
+ * description:
+ * 	Argument(s):
+ * 		--> state: State of the LEDs ON/OFF.
+ * 	Function to Activate all application's LEDs ON/OFF.
+ */
+void VDH_stateAllLeds(LED_States state){
+
+	LED_Activate(VDH_LEDS_PORT, VDH_LOCK_LED, state);
+
+	LED_Activate(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED, state);
+
+	LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, state);
+}
+
+/*
+ * description:
+ * 	Argument(s):
+ * 		--> No Arguments.
+ * 	Function to Initialize buttons, LEDs, RCC, GPT, EXTI.
+ */
+void VDH_init(void){
+
+	Rcc_Init(); // Enable system Clock
+
+	Rcc_Enable(RCC_GPIOA); // Enable Clock for GPIO port A
+
+	Rcc_Enable(RCC_GPIOB); // Enable Clock for GPIO port B
+
+	RCC_Timers_Intialization(); // Enable Clock for GPT
+
+#ifdef EXTI_H_ // In case Exti.h is included.
+
+	Rcc_Enable(RCC_SYSCFG); // Enable Clock for SYSCFG
+
+#endif
+
+	VDH_FlagInit(); // initialize allflags object.
+
+	/*
+	 * Vehicle LED configurations
+	 * Activate as switched OFF.
+	 */
+	LED_Init(VDH_LEDS_PORT, VDH_LOCK_LED);
+	LED_Activate(VDH_LEDS_PORT, VDH_LOCK_LED, LED_OFF);
+
+	/*
+	 * Hazzard LED configurations
+	 * Activate as switched OFF.
+	 */
+	LED_Init(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED);
+	LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, LED_OFF);
+
+	/*
+	 * Ambient LED configurations
+	 * Activate as switched OFF.
+	 */
+	LED_Init(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED);
+	LED_Activate(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED, LED_OFF);
+
+	/*
+	 * Handle button configurations.
+	 * Configured as Active LOW.
+	 */
+	BUTTON_Init(VDH_BUTTONS_PORT, VDH_HANDLE_LOCK_UNLOCK_BUTTON);
+
+	/*
+	 * Door button configurations.
+	 * Configured as Active LOW.
+	 */
+	BUTTON_Init(VDH_BUTTONS_PORT, VDH_DOOR_LOCK_UNLOCK_BUTTON);
+
+	/*
+	 * Initialize Timer 2.
+	 * Basic counter.
+	 * up counting
+	 */
+	GPT_Init(TIM2 , Basic_Counter, Up_Counting);
+
+
+#ifdef EXTI_H_ // In case Exti.h is included
+
+	/*
+	 * Initialize external interrupt on door button
+	 * triggered on fallin edge.
+	 * VDH_doorButtonPressed is the ISR Fuction when the edge is triggered.
+	 */
+	Exti_Init(EXTI_GPIOB, VDH_DOOR_LOCK_UNLOCK_BUTTON, EXTI_FALLING_EDGE, VDH_doorButtonPressed);
+
+#endif
+}
+
+/*
+ * description:
+ * 	Argument(s):
+ * 		--> No Arguments.
+ * 	Function Excuted when the handle is unlocked.
+ */
+void VDH_handleUnlock(void){
+	/*
+	 * Number of ticks incremented every 500ms
+	 */
+	static uint8 num_of_ticks = VDH_INIT_NUM_TICKS;
+
+	/*
+	 * Get elapsed time after handle button is pressed
+	 * to calculate the duration.
+	 */
+	uint32 time_elapsed = GPT_GetElapsedTime(TIM2);
+
+	/*
+	 * check the duration if 500ms is passed
+	 * 		--> Increment the ticks
+	 * 		--> Turn off hazzard LED
+	 * 		--> if number of ticks is 4
+	 * 			=> that means 2000ms is passed
+	 * 			=> Turn off ambient LED
+	 * 			=> re-initialize number of ticks
+	 * 			=> Mark door unlock action as done
+	 * 		--> get the new first time.
+	 */
+	if ( (time_elapsed - first_time) >= VDH_HAZZARD_BLINKING_TIME) {
+
+		num_of_ticks++; //Increment the ticks
+
+		/*
+		 *  Turn off hazzard LED
+		 */
+		LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, LED_OFF);
+
+		/*
+		 * if number of ticks is 4
+		 *		=> that means 2000ms is passed
+		 * 		=> Turn off ambient LED
+		 * 		=> re-initialize number of ticks
+		 * 		=> Mark door unlock action as done
+		 */
+		if (num_of_ticks == (VDH_AMBIENT_HANDLE_UNLOCK_BLINKING_TIME/VDH_HAZZARD_BLINKING_TIME)) {
+			/*
+			 * Turn off ambient LED
+			 */
+			LED_Activate(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED, LED_OFF);
+
+			num_of_ticks = VDH_INIT_NUM_TICKS; // re-initialize number of ticks
+			/*
+			 * Mark door unlock action as done
+			 */
+			allFlags.combinedFlags.doorUnlock_action = VDH_ACTION_IS_DONE;
+
+#ifdef EXTI_H_
+			Exti_Enable(VDH_DOOR_LOCK_UNLOCK_BUTTON);
+#endif
+		}
+
+		first_time = GPT_GetElapsedTime(TIM2); // get the new first time.
+	}
+
+}
+
+/*
+ * description:
+ * 	Argument(s):
+ * 		--> No Arguments.
+ * 	Function is Excuted when the handle is locked or when the handle
+ * 	is unlocked and no action has been done on the door button.
+ */
+void VDH_noActionState(void){
+
+#ifdef EXTI_H_ // In case Exti.h is included
+
+			Exti_Disable(VDH_DOOR_LOCK_UNLOCK_BUTTON); // Disable door interrupt.
+
+#endif
+
+	/*
+	 * Number of ticks incremented every 500ms
+	 */
+	static uint8 num_of_ticks = VDH_INIT_NUM_TICKS;
+
+	/*
+	 * Get elapsed time after handle button is pressed
+	 * to calculate the duration.
+	 */
+	uint32 time_elapsed = GPT_GetElapsedTime(TIM2);
+
+	/*
+	 * check the duration if 500ms is passed
+	 * 		--> Increment the ticks
+	 * 		--> Toggle hazzard LED
+	 * 		--> get first time.
+	 * 		--> get the new first time.
+	 * 		--> if number of ticks is 3
+	 * 			=> that means hazzard Led is toggled 3 times
+	 * 			=> re-initialize number of ticks
+	 * 			=> Turn off hazzard LED
+	 * 			=> get back handle button to the floating state.
+	 * 			=> Mark end action as done
+	 * 			=> Mark security time as is not elpsed
+	 * 			=> Mark timer as off.
+	 */
+	if( (time_elapsed - first_time) >= VDH_HAZZARD_BLINKING_TIME){
+
+		num_of_ticks++; // Increment the ticks
+
+		LED_Toggle(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED); // Toggle hazzard LED
+
+		first_time = GPT_GetElapsedTime(TIM2); // get first time.
+
+		/*
+		 * if number of ticks is 3
+		 * 		=> that means hazzard Led is toggled 3 times
+		 * 		=> re-initialize number of ticks
+		 * 		=> Turn off hazzard LED
+		 * 		=> get back handle button to the floating state.
+		 * 		=> Mark end action as done
+		 * 		=> Mark security time as is not elpsed
+		 * 		=> Mark timer as off for the button driver.
+		 */
+		if (num_of_ticks == ((VDH_HAZZARD_HANDLE_LOCK_BLINKING_TIME/VDH_HAZZARD_BLINKING_TIME)-1)) {
+
+			num_of_ticks = VDH_INIT_NUM_TICKS; // re-initialize number of ticks
+
+			LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, LED_OFF); // Turn off hazzard LED
+
+			allFlags.combinedFlags.handle = VDH_HANDLE_FLOATING_STATE; // get back handle button to the floating state.
+			allFlags.combinedFlags.end_action = VDH_ACTION_IS_DONE; //  Mark end action as done
+			allFlags.combinedFlags.timer_10SecFlag = VDH_10SEC_NOT_ELAPSED; // Mark security time as is not elpsed
+
+			timerIsOn = BUTTON_TimerIsOff; // Mark timer as off for the button driver.
+		}
+	}
+
+}
+
+/*
+ * description:
+ * 	Argument(s):
+ * 		--> No Arguments.
+ * 	Function is Excuted when the handle is unlocked
+ * 	and the door is closed.
+ */
+void VDH_doorIsClosed(void){
+		uint32 time_elapsed = GPT_GetElapsedTime(TIM2);
+
+		/*
+		 * check the duration if 1000ms is passed
+		 * 		--> That means door has been closed.
+		 * 		--> Turn off ambient LED
+		 * 		--> Mark door action as done
+		 * 		--> get the new first time.
+		 */
+		if( (time_elapsed - first_time) >= VDH_AMBIENT_CLOSED_DOOR_BLINKING_TIME){
+
+			LED_Activate(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED, LED_OFF); // Turn off ambient LED
+
+			allFlags.combinedFlags.door_action = VDH_ACTION_IS_DONE; // Mark door action as done
+
+			first_time = GPT_GetElapsedTime(TIM2); // get the new first time.
+		}
+}
+
+/*
+ * description:
+ * 	Argument(s):
+ * 		--> No Arguments.
+ * 	If ExtI.h is included:
+ * 		this is the handler function excuted by the interrupt.
+ * 	Function is Excuted when the door Button is pressed.
+ * 	and the door is closed.
+ */
+void VDH_doorButtonPressed(void){
+
+	/*
+	 * Toggle the state of the door each successful press.
+	 */
+	if (allFlags.combinedFlags.door == VDH_DOOR_IS_CLOSED) {
+		allFlags.combinedFlags.door = VDH_DOOR_IS_OPENED;
+	}
+	else {
+		allFlags.combinedFlags.door = VDH_DOOR_IS_CLOSED;
+	}
+
+	allFlags.combinedFlags.door_changeState = VDH_ACTION_IS_DONE; // Mark door change state action as done.
+
+	LED_Activate(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED, LED_ON); // Turn on ambient LED
+
+	allFlags.combinedFlags.door_action = VDH_ACTION_IS_NOT_DONE; // Mark door action as not done
+
+	allFlags.combinedFlags.timer_10SecFlag = VDH_10SEC_NOT_ELAPSED; // Mark 10 sec timer flag as not elapsed
+
+	first_time = GPT_GetElapsedTime(TIM2); //Update the new first time.
+
+#ifdef EXTI_H_ // In case Exti.h is included
+
+	Exti_HandlerPendingFlag(VDH_DOOR_LOCK_UNLOCK_BUTTON); //clear pending flag
+
+#endif
+}
+
+/*
+ * description:
+ * 	Argument(s):
+ * 		--> No Arguments.
+ * 	Function to initialize allFlags instance.
+ * 	The initial states of the application's flags.
+ */
+void VDH_FlagInit(void){
+	allFlags.combinedFlags.door_action 		 = VDH_ACTION_IS_NOT_DONE; // Initialize door action as not done
+
+	allFlags.combinedFlags.door_changeState  = VDH_ACTION_IS_NOT_DONE;
+
+	allFlags.combinedFlags.end_action 		 = VDH_ACTION_IS_DONE;
+
+	allFlags.combinedFlags.doorUnlock_action = VDH_ACTION_IS_NOT_DONE;
+
+	allFlags.combinedFlags.handle 			 = VDH_HANDLE_FLOATING_STATE;
+
+	allFlags.combinedFlags.door 			 = VDH_DOOR_IS_CLOSED;
+
+	allFlags.combinedFlags.timer_10SecFlag 	 = VDH_10SEC_ELAPSED;
+}
+/*--------------------------------------------------------------------*/
+
+
+

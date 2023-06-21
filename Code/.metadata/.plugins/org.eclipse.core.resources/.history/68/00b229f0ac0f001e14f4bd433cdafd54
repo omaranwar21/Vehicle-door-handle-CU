@@ -1,0 +1,62 @@
+/*
+ * GPT_Private.h
+ *
+ *  Created on: May 9, 2023
+ *      Author: Anwar
+ */
+
+#ifndef GPT_PRIVATE_H_
+#define GPT_PRIVATE_H_
+
+#include "Std_Types.h"
+
+
+// Define the base addresses for the four Timers
+#define TIM2_BASE_ADDRESS  0x40000000
+#define TIM3_BASE_ADDRESS  0x40000400
+#define TIM4_BASE_ADDRESS  0x40000800
+#define TIM5_BASE_ADDRESS  0x40000C00
+
+#define TIM9_BASE_ADDRESS  0x40014000
+#define TIM10_BASE_ADDRESS 0x40014400
+#define TIM11_BASE_ADDRESS 0x40014800
+
+//------------------------------------------------
+
+typedef struct{
+	uint32 TIMx_CR1;
+	uint32 TIMx_CR2;
+	uint32 TIMx_SMCR;
+	uint32 TIMx_DIER;
+	uint32 TIMx_SR;
+	uint32 TIMx_EGR;
+	uint32 TIMx_CCMR1;
+	uint32 TIMx_CCMR2;
+	uint32 TIMx_CCER;
+	uint32 TIMx_CNT;
+	uint32 TIMx_PSC;
+	uint32 TIMx_ARR;
+	uint32 RESERVED_1;
+	uint32 TIMx_CCR1;
+	uint32 TIMx_CCR2;
+	uint32 TIMx_CCR3;
+	uint32 TIMx_CCR4;
+	uint32 RESERVED_2;
+	uint32 TIMx_DCR;
+	uint32 TIMx_DMAR;
+	uint32 TIM2_OR;
+	uint32 TIM5_OR;
+}TIMX_TYPE;
+
+/* -------------------------------- CR1 ------------------------------------- */
+typedef enum
+{
+	CR1_CEN_BIT, 		// Counter enable
+	CR1_DIR_BIT = 4,  	// counting direction bit
+	CR1_ARPE_BIT = 7    // Auto-reload pre-load enable
+}CR1_REG;
+
+
+
+
+#endif /* GPT_PRIVATE_H_ */

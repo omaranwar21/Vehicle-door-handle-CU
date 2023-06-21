@@ -79,8 +79,12 @@ Gpio_WriteDataFlag GPIO_WritePinValue(uint8 PortName,
 		return NOK;
 	}
 
-	GPIO_Port->GPIOx_ODR &= ~(0x1 << PinNum);
-	GPIO_Port->GPIOx_ODR |= (Data << PinNum);
+	if(Data == HIGH){
+		GPIO_Port->GPIOx_ODR |= (Data << PinNum);
+	}
+	else {
+		GPIO_Port->GPIOx_ODR &= ~(0x1 << PinNum);
+	}
 
 	return OK;
 }

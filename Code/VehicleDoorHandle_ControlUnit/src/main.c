@@ -24,8 +24,24 @@ TIMx_Configue Timer = {
 };
 /*----------------------------------------------------------------------------------------------------*/
 
+/*---------------------- Global Variables ------------------------------------------------------------*/
+
+/*
+ * extern (From VehicleDoorHandle.c) Number of ticks incremented every 500 ms to handle blinking time
+ * for end action to re-intialize it every handle button press.
+ */
+extern uint8 endAction_noOfTicks;
+
+/*
+ * extern (From VehicleDoorHandle.c) Number of ticks incremented every 500 ms to handle blinking time
+ * for handle unlock action to re-intialize it every handle button press.
+ */
+extern uint8 handleUnlock_noOfTicks;
+/*----------------------------------------------------------------------------------------------------*/
+
 /*------------------------------------------ Main Function -------------------------------------------*/
 int main(void) {
+
 	VDH_init(); // Initialize buttons, LEDs, RCC, GPT, EXTI
 
 /*------------------------------------------ Super Loop -------------------------------------------*/
@@ -43,6 +59,10 @@ int main(void) {
 				&& allFlags.combinedFlags.door != VDH_DOOR_IS_OPENED) {
 
 			timerIsOn = BUTTON_TimerIsOn; // mark the timer as on for button driver.
+
+			endAction_noOfTicks = 0; // Re-intialize end action number of ticks.
+
+			handleUnlock_noOfTicks = 0;  // Re-intialize handle unlock action number of ticks.
 
 			/*
 			 * For each button press toggle the state of the handle

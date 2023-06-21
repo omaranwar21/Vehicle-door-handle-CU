@@ -1,0 +1,118 @@
+/*
+ * main.c
+ *
+ *  Created on: May 8, 2023
+ *      Author: Anwar
+ */
+
+#include "VehicleDoorHandle.h"
+
+extern Action_State door_action;
+
+extern boolean handle;
+extern boolean door;
+extern boolean interruptHandleFlag;
+//extern Action_State end_action;
+extern boolean timer_10SecFlag;
+extern uint32 first_time;
+extern Action_State doorUnlock_action;
+
+int main(void) {
+	VDH_defaultState();
+
+
+	while(1){
+
+
+		if (interruptHandleFlag == 1 && door == VDH_DOOR_IS_CLOSED) {
+
+			VDH_handleButtonPressed();
+//delay_ms(500);
+			GPT_StartTimer(VDH_SECURITY_TIME_IN_ms);
+			first_time = GPT_GetElapsedTime();
+			Exti_Enable(VDH_DOOR_LOCK_UNLOCK_BUTTON);
+			interruptHandleFlag = 0;
+//			if(handle == VDH_HANDLE_FLOATING_STATE){
+//				handle = VDH_HANDLE_IS_LOCKED;
+//			}
+//
+//			if (handle == VDH_HANDLE_IS_LOCKED) {
+//				handle = VDH_HANDLE_IS_UNLOCKED;
+//			}
+//			else {
+//				handle = VDH_HANDLE_IS_LOCKED;
+//			}
+//			end_action = VDH_ACTION_IS_NOT_DONE;
+//
+//			timer_10SecFlag = VDH_10SEC_NOT_ELAPSED;
+//
+//			doorUnlock_action = VDH_ACTION_IS_NOT_DONE;
+//
+//			VDH_stateAllLeds(LED_ON);
+//			GPT_StartTimer(VDH_SECURITY_TIME_IN_ms);
+//			first_time = GPT_GetElapsedTime();
+		}
+
+
+//			VDH_handleButtonPressed();
+		if (handle == VDH_HANDLE_IS_UNLOCKED) {
+			if (doorUnlock_action == VDH_ACTION_IS_NOT_DONE) {
+//			LED_Activate(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED, LED_ON);
+				VDH_doorUnlock();
+			}
+//			if (BUTTON_ReadState(VDH_BUTTONS_PORT, VDH_DOOR_LOCK_UNLOCK_BUTTON) == BUTTON_PRESSED) {
+//
+//				if(door == VDH_DOOR_IS_OPENED){
+//					door = VDH_DOOR_IS_CLOSED;
+//				}
+//				else {
+//					door = VDH_DOOR_IS_OPENED;
+//				}
+//				LED_Activate(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED, LED_ON);
+//
+//				door_action = VDH_ACTION_IS_NOT_DONE;
+//
+//				timer_10SecFlag = VDH_10SEC_NOT_ELAPSED;
+//
+//				first_time = GPT_GetElapsedTime();
+//			}
+			if ((door == VDH_DOOR_IS_CLOSED) && (door_action == VDH_ACTION_IS_NOT_DONE)) {
+
+				VDH_doorIsClosed();
+
+			}
+			if (GPT_GetElapsedTime() == GPT_Elapsed && timer_10SecFlag == VDH_10SEC_NOT_ELAPSED && door == VDH_DOOR_IS_CLOSED) {
+
+				timer_10SecFlag = VDH_10SEC_ELAPSED;
+
+				first_time = GPT_GetElapsedTime();
+
+				VDH_stateAllLeds(LED_OFF);
+
+				LED_Activate(VDH_LEDS_PORT, VDH_HAZARD_LIGHTS_LED, LED_ON);
+
+			}
+			if (timer_10SecFlag == VDH_10SEC_ELAPSED){
+
+//			VDH_stateAllLeds(LED_ON);
+				VDH_noActionState();
+
+			}
+		}
+		else if(handle == VDH_HANDLE_IS_LOCKED && door == VDH_DOOR_IS_CLOSED){
+
+			LED_Activate(VDH_LEDS_PORT, VDH_AMBIENT_LIGHT_LED, LED_OFF);
+
+			LED_Activate(VDH_LEDS_PORT, VDH_LOCK_LED, LED_OFF);
+
+			VDH_noActionState();
+
+		}
+	}
+
+	return 0;
+}
+
+
+
+

@@ -146,7 +146,7 @@ Discarded input sections
  .data          0x00000000        0x0 ./GPT/gpt.o
  .bss           0x00000000        0x0 ./GPT/gpt.o
  .text.GPT_GetRemainingTime
-                0x00000000       0x60 ./GPT/gpt.o
+                0x00000000       0x64 ./GPT/gpt.o
  .text          0x00000000        0x0 ./External_Interrupt/ExtI.o
  .data          0x00000000        0x0 ./External_Interrupt/ExtI.o
  .bss           0x00000000        0x0 ./External_Interrupt/ExtI.o
@@ -347,10 +347,10 @@ END GROUP
 
 .inits          0x080003b4       0x28
                 0x080003b4                __data_regions_array_start = .
-                0x080003b4        0x4 LONG 0x8001540 LOADADDR (.data)
+                0x080003b4        0x4 LONG 0x80015a4 LOADADDR (.data)
                 0x080003b8        0x4 LONG 0x20000000 ADDR (.data)
                 0x080003bc        0x4 LONG 0x20000040 (ADDR (.data) + SIZEOF (.data))
-                0x080003c0        0x4 LONG 0x8001540 LOADADDR (.data_CCMRAM)
+                0x080003c0        0x4 LONG 0x80015a4 LOADADDR (.data_CCMRAM)
                 0x080003c4        0x4 LONG 0x10000000 ADDR (.data_CCMRAM)
                 0x080003c8        0x4 LONG 0x10000000 (ADDR (.data_CCMRAM) + SIZEOF (.data_CCMRAM))
                 0x080003cc                __data_regions_array_end = .
@@ -382,7 +382,7 @@ END GROUP
 .flashtext
  *(.flashtext .flashtext.*)
 
-.text           0x080003dc     0x1164
+.text           0x080003dc     0x11c8
  *(.text .text.*)
  .text._exit    0x080003dc        0xc ./system/src/newlib/exit.o
                 0x080003dc                _exit
@@ -423,147 +423,147 @@ END GROUP
                 0x0800075c       0x50 ./src/VehicleDoorHandle.o
                 0x0800075c                VDH_doorIsClosed
  .text.VDH_doorButtonPressed
-                0x080007ac       0x74 ./src/VehicleDoorHandle.o
+                0x080007ac       0x7c ./src/VehicleDoorHandle.o
                 0x080007ac                VDH_doorButtonPressed
  .text.VDH_FlagInit
-                0x08000820       0x58 ./src/VehicleDoorHandle.o
-                0x08000820                VDH_FlagInit
- .text.main     0x08000878      0x1b4 ./src/main.o
-                0x08000878                main
+                0x08000828       0x58 ./src/VehicleDoorHandle.o
+                0x08000828                VDH_FlagInit
+ .text.main     0x08000880      0x1c8 ./src/main.o
+                0x08000880                main
  .text.Rcc_Init
-                0x08000a2c       0x1c ./Rcc/Rcc.o
-                0x08000a2c                Rcc_Init
+                0x08000a48       0x1c ./Rcc/Rcc.o
+                0x08000a48                Rcc_Init
  .text.Rcc_Enable
-                0x08000a48       0xa8 ./Rcc/Rcc.o
-                0x08000a48                Rcc_Enable
+                0x08000a64       0xa8 ./Rcc/Rcc.o
+                0x08000a64                Rcc_Enable
  .text.LED_Init
-                0x08000af0       0x34 ./Led/Led.o
-                0x08000af0                LED_Init
+                0x08000b0c       0x34 ./Led/Led.o
+                0x08000b0c                LED_Init
  .text.LED_Activate
-                0x08000b24       0x26 ./Led/Led.o
-                0x08000b24                LED_Activate
+                0x08000b40       0x26 ./Led/Led.o
+                0x08000b40                LED_Activate
  .text.LED_Toggle
-                0x08000b4a       0x40 ./Led/Led.o
-                0x08000b4a                LED_Toggle
- *fill*         0x08000b8a        0x2 
+                0x08000b66       0x40 ./Led/Led.o
+                0x08000b66                LED_Toggle
+ *fill*         0x08000ba6        0x2 
  .text.Gpio_ConfigPin
-                0x08000b8c       0xb8 ./Gpio/Gpio.o
-                0x08000b8c                Gpio_ConfigPin
+                0x08000ba8       0xb8 ./Gpio/Gpio.o
+                0x08000ba8                Gpio_ConfigPin
  .text.GPIO_WritePinValue
-                0x08000c44       0x78 ./Gpio/Gpio.o
-                0x08000c44                GPIO_WritePinValue
+                0x08000c60       0x80 ./Gpio/Gpio.o
+                0x08000c60                GPIO_WritePinValue
  .text.GPIO_ReadPinState
-                0x08000cbc       0xa0 ./Gpio/Gpio.o
-                0x08000cbc                GPIO_ReadPinState
+                0x08000ce0       0xa0 ./Gpio/Gpio.o
+                0x08000ce0                GPIO_ReadPinState
  .text.GPT_Init
-                0x08000d5c       0x7a ./GPT/gpt.o
-                0x08000d5c                GPT_Init
- *fill*         0x08000dd6        0x2 
+                0x08000d80       0x8a ./GPT/gpt.o
+                0x08000d80                GPT_Init
+ *fill*         0x08000e0a        0x2 
  .text.GPT_StartTimer
-                0x08000dd8       0x40 ./GPT/gpt.o
-                0x08000dd8                GPT_StartTimer
+                0x08000e0c       0x70 ./GPT/gpt.o
+                0x08000e0c                GPT_StartTimer
  .text.GPT_CheckTimeIsElapsed
-                0x08000e18       0x8c ./GPT/gpt.o
-                0x08000e18                GPT_CheckTimeIsElapsed
+                0x08000e7c       0x8c ./GPT/gpt.o
+                0x08000e7c                GPT_CheckTimeIsElapsed
  .text.GPT_GetElapsedTime
-                0x08000ea4       0x5c ./GPT/gpt.o
-                0x08000ea4                GPT_GetElapsedTime
+                0x08000f08       0x5c ./GPT/gpt.o
+                0x08000f08                GPT_GetElapsedTime
  .text.Exti_Init
-                0x08000f00      0x214 ./External_Interrupt/ExtI.o
-                0x08000f00                Exti_Init
+                0x08000f64      0x214 ./External_Interrupt/ExtI.o
+                0x08000f64                Exti_Init
  .text.Exti_Enable
-                0x08001114       0x2c ./External_Interrupt/ExtI.o
-                0x08001114                Exti_Enable
+                0x08001178       0x2c ./External_Interrupt/ExtI.o
+                0x08001178                Exti_Enable
  .text.Exti_Disable
-                0x08001140       0x30 ./External_Interrupt/ExtI.o
-                0x08001140                Exti_Disable
+                0x080011a4       0x30 ./External_Interrupt/ExtI.o
+                0x080011a4                Exti_Disable
  .text.Exti_HandlerPendingFlag
-                0x08001170       0x2c ./External_Interrupt/ExtI.o
-                0x08001170                Exti_HandlerPendingFlag
+                0x080011d4       0x2c ./External_Interrupt/ExtI.o
+                0x080011d4                Exti_HandlerPendingFlag
  .text.EXTI0_IRQHandler
-                0x0800119c       0x14 ./External_Interrupt/ExtI.o
-                0x0800119c                EXTI0_IRQHandler
+                0x08001200       0x14 ./External_Interrupt/ExtI.o
+                0x08001200                EXTI0_IRQHandler
  .text.EXTI1_IRQHandler
-                0x080011b0       0x14 ./External_Interrupt/ExtI.o
-                0x080011b0                EXTI1_IRQHandler
+                0x08001214       0x14 ./External_Interrupt/ExtI.o
+                0x08001214                EXTI1_IRQHandler
  .text.EXTI2_IRQHandler
-                0x080011c4       0x14 ./External_Interrupt/ExtI.o
-                0x080011c4                EXTI2_IRQHandler
+                0x08001228       0x14 ./External_Interrupt/ExtI.o
+                0x08001228                EXTI2_IRQHandler
  .text.EXTI3_IRQHandler
-                0x080011d8       0x14 ./External_Interrupt/ExtI.o
-                0x080011d8                EXTI3_IRQHandler
+                0x0800123c       0x14 ./External_Interrupt/ExtI.o
+                0x0800123c                EXTI3_IRQHandler
  .text.EXTI4_IRQHandler
-                0x080011ec       0x14 ./External_Interrupt/ExtI.o
-                0x080011ec                EXTI4_IRQHandler
+                0x08001250       0x14 ./External_Interrupt/ExtI.o
+                0x08001250                EXTI4_IRQHandler
  .text.EXTI9_5_IRQHandler
-                0x08001200       0xa8 ./External_Interrupt/ExtI.o
-                0x08001200                EXTI9_5_IRQHandler
+                0x08001264       0xa8 ./External_Interrupt/ExtI.o
+                0x08001264                EXTI9_5_IRQHandler
  .text.EXTI15_10_IRQHandler
-                0x080012a8       0xcc ./External_Interrupt/ExtI.o
-                0x080012a8                EXTI15_10_IRQHandler
+                0x0800130c       0xcc ./External_Interrupt/ExtI.o
+                0x0800130c                EXTI15_10_IRQHandler
  .text.PVD_IRQHandler
-                0x08001374       0x14 ./External_Interrupt/ExtI.o
-                0x08001374                PVD_IRQHandler
+                0x080013d8       0x14 ./External_Interrupt/ExtI.o
+                0x080013d8                PVD_IRQHandler
  .text.RTC_Alarm_IRQHandler
-                0x08001388       0x14 ./External_Interrupt/ExtI.o
-                0x08001388                RTC_Alarm_IRQHandler
+                0x080013ec       0x14 ./External_Interrupt/ExtI.o
+                0x080013ec                RTC_Alarm_IRQHandler
  .text.OTG_FS_WKUP_IRQHandler
-                0x0800139c       0x14 ./External_Interrupt/ExtI.o
-                0x0800139c                OTG_FS_WKUP_IRQHandler
+                0x08001400       0x14 ./External_Interrupt/ExtI.o
+                0x08001400                OTG_FS_WKUP_IRQHandler
  .text.TAMP_STAMP_IRQHandler
-                0x080013b0       0x14 ./External_Interrupt/ExtI.o
-                0x080013b0                TAMP_STAMP_IRQHandler
+                0x08001414       0x14 ./External_Interrupt/ExtI.o
+                0x08001414                TAMP_STAMP_IRQHandler
  .text.RTC_WKUP_IRQHandler
-                0x080013c4       0x14 ./External_Interrupt/ExtI.o
-                0x080013c4                RTC_WKUP_IRQHandler
+                0x08001428       0x14 ./External_Interrupt/ExtI.o
+                0x08001428                RTC_WKUP_IRQHandler
  .text.BUTTON_Init
-                0x080013d8       0x48 ./Button/Button.o
-                0x080013d8                BUTTON_Init
+                0x0800143c       0x48 ./Button/Button.o
+                0x0800143c                BUTTON_Init
  .text.BUTTON_ReadState
-                0x08001420      0x110 ./Button/Button.o
-                0x08001420                BUTTON_ReadState
+                0x08001484      0x110 ./Button/Button.o
+                0x08001484                BUTTON_ReadState
  *(.rodata .rodata.* .constdata .constdata.*)
  .rodata.AHBPrescTable
-                0x08001530       0x10 ./system/src/cmsis/system_stm32f4xx.o
-                0x08001530                AHBPrescTable
+                0x08001594       0x10 ./system/src/cmsis/system_stm32f4xx.o
+                0x08001594                AHBPrescTable
  *(vtable)
  *(.eh_frame*)
  *(.glue_7)
- .glue_7        0x08001540        0x0 linker stubs
+ .glue_7        0x080015a4        0x0 linker stubs
  *(.glue_7t)
- .glue_7t       0x08001540        0x0 linker stubs
+ .glue_7t       0x080015a4        0x0 linker stubs
 
-.vfp11_veneer   0x08001540        0x0
- .vfp11_veneer  0x08001540        0x0 linker stubs
+.vfp11_veneer   0x080015a4        0x0
+ .vfp11_veneer  0x080015a4        0x0 linker stubs
 
-.v4_bx          0x08001540        0x0
- .v4_bx         0x08001540        0x0 linker stubs
+.v4_bx          0x080015a4        0x0
+ .v4_bx         0x080015a4        0x0 linker stubs
 
-.iplt           0x08001540        0x0
- .iplt          0x08001540        0x0 ./system/src/newlib/exit.o
+.iplt           0x080015a4        0x0
+ .iplt          0x080015a4        0x0 ./system/src/newlib/exit.o
 
-.rel.dyn        0x08001540        0x0
- .rel.iplt      0x08001540        0x0 ./system/src/newlib/exit.o
+.rel.dyn        0x080015a4        0x0
+ .rel.iplt      0x080015a4        0x0 ./system/src/newlib/exit.o
 
 .ARM.extab
  *(.ARM.extab* .gnu.linkonce.armextab.*)
-                0x08001540                . = ALIGN (0x4)
-                0x08001540                __exidx_start = .
+                0x080015a4                . = ALIGN (0x4)
+                0x080015a4                __exidx_start = .
 
 .ARM.exidx
  *(.ARM.exidx* .gnu.linkonce.armexidx.*)
-                0x08001540                __exidx_end = .
-                0x08001540                . = ALIGN (0x4)
-                0x08001540                _etext = .
-                0x08001540                __etext = .
+                0x080015a4                __exidx_end = .
+                0x080015a4                . = ALIGN (0x4)
+                0x080015a4                _etext = .
+                0x080015a4                __etext = .
 
-.data_CCMRAM    0x10000000        0x0 load address 0x08001540
+.data_CCMRAM    0x10000000        0x0 load address 0x080015a4
  FILL mask 0xff
  *(.data.CCMRAM .data.CCMRAM.*)
                 0x10000000                . = ALIGN (0x4)
-                0x08001540                _sidata = LOADADDR (.data)
+                0x080015a4                _sidata = LOADADDR (.data)
 
-.data           0x20000000       0x40 load address 0x08001540
+.data           0x20000000       0x40 load address 0x080015a4
  FILL mask 0xff
                 0x20000000                _sdata = .
                 0x20000000                __data_start__ = .
@@ -587,7 +587,7 @@ END GROUP
                 0x20000040                _edata = .
                 0x20000040                __data_end__ = .
 
-.igot.plt       0x20000040        0x0 load address 0x08001580
+.igot.plt       0x20000040        0x0 load address 0x080015e4
  .igot.plt      0x20000040        0x0 ./system/src/newlib/exit.o
 
 .bss_CCMRAM     0x10000000        0x0
@@ -599,10 +599,12 @@ END GROUP
  *(.bss_begin .bss_begin.*)
  *(.bss .bss.*)
  .bss.name.0    0x20000040        0x1 ./system/src/newlib/syscalls.o
- .bss.num_of_ticks.1
+ .bss.endAction_noOfTicks
                 0x20000041        0x1 ./src/VehicleDoorHandle.o
- .bss.num_of_ticks.0
+                0x20000041                endAction_noOfTicks
+ .bss.handleUnlock_noOfTicks
                 0x20000042        0x1 ./src/VehicleDoorHandle.o
+                0x20000042                handleUnlock_noOfTicks
  *fill*         0x20000043        0x1 
  .bss.first_time
                 0x20000044        0x4 ./src/main.o
@@ -803,7 +805,7 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x304e
+.debug_info     0x00000000     0x3081
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000       0xd5 ./system/src/newlib/exit.o
  .debug_info    0x000000d5      0x3fc ./system/src/newlib/startup.o
@@ -813,16 +815,16 @@ END GROUP
  .debug_info    0x00000b67      0x29a ./system/src/cortexm/reset-hardware.o
  .debug_info    0x00000e01      0x52c ./system/src/cmsis/system_stm32f4xx.o
  .debug_info    0x0000132d       0xca ./system/src/cmsis/vectors_stm32f401xe.o
- .debug_info    0x000013f7      0x54e ./src/VehicleDoorHandle.o
- .debug_info    0x00001945      0x47e ./src/main.o
- .debug_info    0x00001dc3      0x12a ./Rcc/Rcc.o
- .debug_info    0x00001eed      0x1e8 ./Led/Led.o
- .debug_info    0x000020d5      0x36d ./Gpio/Gpio.o
- .debug_info    0x00002442      0x3a8 ./GPT/gpt.o
- .debug_info    0x000027ea      0x45e ./External_Interrupt/ExtI.o
- .debug_info    0x00002c48      0x406 ./Button/Button.o
+ .debug_info    0x000013f7      0x569 ./src/VehicleDoorHandle.o
+ .debug_info    0x00001960      0x496 ./src/main.o
+ .debug_info    0x00001df6      0x12a ./Rcc/Rcc.o
+ .debug_info    0x00001f20      0x1e8 ./Led/Led.o
+ .debug_info    0x00002108      0x36d ./Gpio/Gpio.o
+ .debug_info    0x00002475      0x3a8 ./GPT/gpt.o
+ .debug_info    0x0000281d      0x45e ./External_Interrupt/ExtI.o
+ .debug_info    0x00002c7b      0x406 ./Button/Button.o
 
-.debug_abbrev   0x00000000      0xf26
+.debug_abbrev   0x00000000      0xf42
  *(.debug_abbrev)
  .debug_abbrev  0x00000000       0xab ./system/src/newlib/exit.o
  .debug_abbrev  0x000000ab      0x15c ./system/src/newlib/startup.o
@@ -832,16 +834,16 @@ END GROUP
  .debug_abbrev  0x000004a4       0xf5 ./system/src/cortexm/reset-hardware.o
  .debug_abbrev  0x00000599      0x113 ./system/src/cmsis/system_stm32f4xx.o
  .debug_abbrev  0x000006ac       0xa2 ./system/src/cmsis/vectors_stm32f401xe.o
- .debug_abbrev  0x0000074e      0x18e ./src/VehicleDoorHandle.o
- .debug_abbrev  0x000008dc      0x10d ./src/main.o
- .debug_abbrev  0x000009e9       0x86 ./Rcc/Rcc.o
- .debug_abbrev  0x00000a6f       0xab ./Led/Led.o
- .debug_abbrev  0x00000b1a       0xfb ./Gpio/Gpio.o
- .debug_abbrev  0x00000c15       0xfc ./GPT/gpt.o
- .debug_abbrev  0x00000d11      0x122 ./External_Interrupt/ExtI.o
- .debug_abbrev  0x00000e33       0xf3 ./Button/Button.o
+ .debug_abbrev  0x0000074e      0x1aa ./src/VehicleDoorHandle.o
+ .debug_abbrev  0x000008f8      0x10d ./src/main.o
+ .debug_abbrev  0x00000a05       0x86 ./Rcc/Rcc.o
+ .debug_abbrev  0x00000a8b       0xab ./Led/Led.o
+ .debug_abbrev  0x00000b36       0xfb ./Gpio/Gpio.o
+ .debug_abbrev  0x00000c31       0xfc ./GPT/gpt.o
+ .debug_abbrev  0x00000d2d      0x122 ./External_Interrupt/ExtI.o
+ .debug_abbrev  0x00000e4f       0xf3 ./Button/Button.o
 
-.debug_line     0x00000000     0x22f1
+.debug_line     0x00000000     0x23c3
  *(.debug_line)
  .debug_line    0x00000000      0x195 ./system/src/newlib/exit.o
  .debug_line    0x00000195      0x235 ./system/src/newlib/startup.o
@@ -851,14 +853,14 @@ END GROUP
  .debug_line    0x00000879      0x172 ./system/src/cortexm/reset-hardware.o
  .debug_line    0x000009eb      0x1d4 ./system/src/cmsis/system_stm32f4xx.o
  .debug_line    0x00000bbf       0x63 ./system/src/cmsis/vectors_stm32f401xe.o
- .debug_line    0x00000c22      0x52b ./src/VehicleDoorHandle.o
- .debug_line    0x0000114d      0x3e6 ./src/main.o
- .debug_line    0x00001533      0x12f ./Rcc/Rcc.o
- .debug_line    0x00001662      0x1a3 ./Led/Led.o
- .debug_line    0x00001805      0x1fc ./Gpio/Gpio.o
- .debug_line    0x00001a01      0x23a ./GPT/gpt.o
- .debug_line    0x00001c3b      0x41e ./External_Interrupt/ExtI.o
- .debug_line    0x00002059      0x298 ./Button/Button.o
+ .debug_line    0x00000c22      0x5ba ./src/VehicleDoorHandle.o
+ .debug_line    0x000011dc      0x3ec ./src/main.o
+ .debug_line    0x000015c8      0x12f ./Rcc/Rcc.o
+ .debug_line    0x000016f7      0x1a3 ./Led/Led.o
+ .debug_line    0x0000189a      0x1ff ./Gpio/Gpio.o
+ .debug_line    0x00001a99      0x274 ./GPT/gpt.o
+ .debug_line    0x00001d0d      0x41e ./External_Interrupt/ExtI.o
+ .debug_line    0x0000212b      0x298 ./Button/Button.o
 
 .debug_frame    0x00000000      0x9bc
  *(.debug_frame)
@@ -879,7 +881,7 @@ END GROUP
  .debug_frame   0x00000764      0x200 ./External_Interrupt/ExtI.o
  .debug_frame   0x00000964       0x58 ./Button/Button.o
 
-.debug_str      0x00000000     0x13a2
+.debug_str      0x00000000     0x13c0
  *(.debug_str)
  .debug_str     0x00000000      0x1de ./system/src/newlib/exit.o
                                 0x217 (size before relaxing)
@@ -897,21 +899,21 @@ END GROUP
                                 0x3d0 (size before relaxing)
  .debug_str     0x00000783       0x59 ./system/src/cmsis/vectors_stm32f401xe.o
                                 0x227 (size before relaxing)
- .debug_str     0x000007dc      0x472 ./src/VehicleDoorHandle.o
-                                0x647 (size before relaxing)
- .debug_str     0x00000c4e       0x62 ./src/main.o
-                                0x55e (size before relaxing)
- .debug_str     0x00000cb0       0x56 ./Rcc/Rcc.o
+ .debug_str     0x000007dc      0x495 ./src/VehicleDoorHandle.o
+                                0x66a (size before relaxing)
+ .debug_str     0x00000c71       0x5d ./src/main.o
+                                0x589 (size before relaxing)
+ .debug_str     0x00000cce       0x56 ./Rcc/Rcc.o
                                 0x246 (size before relaxing)
- .debug_str     0x00000d06       0xd1 ./Led/Led.o
+ .debug_str     0x00000d24       0xd1 ./Led/Led.o
                                 0x2ca (size before relaxing)
- .debug_str     0x00000dd7      0x139 ./Gpio/Gpio.o
+ .debug_str     0x00000df5      0x139 ./Gpio/Gpio.o
                                 0x3d8 (size before relaxing)
- .debug_str     0x00000f10       0xdb ./GPT/gpt.o
+ .debug_str     0x00000f2e       0xdb ./GPT/gpt.o
                                 0x42e (size before relaxing)
- .debug_str     0x00000feb      0x2e6 ./External_Interrupt/ExtI.o
+ .debug_str     0x00001009      0x2e6 ./External_Interrupt/ExtI.o
                                 0x554 (size before relaxing)
- .debug_str     0x000012d1       0xd1 ./Button/Button.o
+ .debug_str     0x000012ef       0xd1 ./Button/Button.o
                                 0x510 (size before relaxing)
 
 .debug_loc

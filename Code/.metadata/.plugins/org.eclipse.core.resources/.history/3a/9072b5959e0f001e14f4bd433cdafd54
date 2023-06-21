@@ -1,0 +1,121 @@
+/*
+ * GPT_Private.h
+ *
+ *  Created on: May 9, 2023
+ *      Author: Anwar
+ */
+
+#ifndef GPT_PRIVATE_H_
+#define GPT_PRIVATE_H_
+
+#include "Std_Types.h"
+
+
+// Define the base addresses for the four Timers
+#define TIM2_BASE_ADDRESS  0x40000000
+#define TIM3_BASE_ADDRESS  0x40000400
+#define TIM4_BASE_ADDRESS  0x40000800
+#define TIM5_BASE_ADDRESS  0x40000C00
+
+#define TIM9_BASE_ADDRESS  0x40014000
+#define TIM10_BASE_ADDRESS 0x40014400
+#define TIM11_BASE_ADDRESS 0x40014800
+
+
+//define the Timers Bits Needed
+
+#define CR1_CEN_BIT                0     // Counter enable
+#define CR1_UDIS_BIT               1     // Update disable
+#define CR1_OPM_BIT                3     // One-pulse mode
+#define CR1_DIR_BIT                4     // counting direction bit
+#define CR1_ARPE_BIT               7     // Auto-reload pre-load enable
+
+
+
+//------------------------------------------------
+
+#define DIER_UIE_BIT               0     // Update interrupt enable
+
+//------------------------------------------------
+
+#define SR_UIF_BIT                 0     // Update interrupt flag ( be (1) : Update interrupt pending )
+
+//------------------------------------------------
+
+
+typedef struct{
+	uint32 TIMx_CR1;
+	uint32 TIMx_CR2;
+	uint32 TIMx_SMCR;
+	uint32 TIMx_DIER;
+	uint32 TIMx_SR;
+	uint32 TIMx_EGR;
+	uint32 TIMx_CCMR1;
+	uint32 TIMx_CCMR2;
+	uint32 TIMx_CCER;
+	uint32 TIMx_CNT;
+	uint32 TIMx_PSC;
+	uint32 TIMx_ARR;
+	uint32 RESERVED_1;
+	uint32 TIMx_CCR1;
+	uint32 TIMx_CCR2;
+	uint32 TIMx_CCR3;
+	uint32 TIMx_CCR4;
+	uint32 RESERVED_2;
+	uint32 TIMx_DCR;
+	uint32 TIMx_DMAR;
+	uint32 TIM2_OR;
+	uint32 TIM5_OR;
+}TIMX_TYPE;
+
+
+typedef enum
+{
+	Basic_Counter, Input_CaptureCompare, Output_CaptureCompare
+}TIMX_Mode_Selection;
+
+
+
+/* -------------------------------- CR1 ------------------------------------- */
+
+
+typedef enum
+{
+	Counter_Enabled, Counter_Disabled
+}CR1_CounterControl;
+
+typedef enum
+{
+	Update_Event_Enabled, Update_Event_Disabled
+}CR1_UpdateEvent;
+typedef enum
+{
+	 Counter_not_stop_with_Updating, Counter_stop_with_Updating
+}CR1_OnePulseMode;
+
+
+// this control the PWM used modes to set a specific period determined using CCRx
+typedef enum
+{
+	 set_countingDown=1 , set_countingUp, set_countingUpDown
+}CMS_PWM_Modes;
+
+typedef enum
+{
+	Auto_Reload_Not_Buffering, Auto_Reload_Buffering
+}CR1_AutoReloadPreloadEnable;
+
+
+/* -------------------------------- DIER -------------------------------------*/
+
+typedef enum
+{
+	Update_interrupt_disabled,  Update_interrupt_enabled
+}DIER_Update_Interrupt;
+
+
+/* -------------------------------- CCMR1 -------------------------------------*/
+
+
+
+#endif /* GPT_PRIVATE_H_ */

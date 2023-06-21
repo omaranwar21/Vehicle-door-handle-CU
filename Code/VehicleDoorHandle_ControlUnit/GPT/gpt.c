@@ -61,6 +61,8 @@ void GPT_Init(TIMx_Configue* Timer){
 
 	SET_BIT(Timer->TIMx->TIMx_EGR, EGR_UG_BIT); // Adjust update generation bit in TIMx_EGR
 
+	SET_BIT(Timer->TIMx->TIMx_CR1, CR1_CEN_BIT); // Enable counting by set CEI_BIT in TIMx_CR1 register.
+
 }
 
 /*
@@ -75,19 +77,30 @@ void GPT_StartTimer(TIMx_Configue* Timer,uint32 OverFlowTicks){
 
 	/*
 	 * --> Add number of ticks in TIMx_ARR register
-	 * --> Reset counter by add zero to TIMx_CNT
+	 * --> Reset counter by add one to TIMx_CNT
 	 * --> Update g_flag to one in order to allow
 	 *     entering check time is elapsed function
 	 * --> Enable counting by set CEI_BIT in TIMx_CR1 register.
 	 */
 
-	Timer->TIMx->TIMx_ARR = OverFlowTicks; // Add number of ticks in TIMx_ARR register
+	if (Timer->direction == GPT_Up_Down_Counting && g_flag){
+		Counting_UpDown= READ_BIT(Timer->TIMx->TIMx_CR1, CR1_DIR_BIT);
+	}
 
-	Timer->TIMx->TIMx_CNT = 0; // Reset counter by add zero to TIMx_CNT
+	if (( (Timer->direction == GPT_Down_Counting) || (Counting_UpDown == GPT_Down_Counting ) )) {
+
+		Timer->TIMx->TIMx_CNT = OverFlowTicks; // Reset counter by add one to TIMx_CNT
+
+	}else{
+
+		Timer->TIMx->TIMx_CNT = 1;
+	}
+
+
+	Timer->TIMx->TIMx_ARR = OverFlowTicks; // Add number of ticks in TIMx_ARR register
 
 	g_flag = 1; // Update g_flag to one
 
-	SET_BIT(Timer->TIMx->TIMx_CR1, CR1_CEN_BIT); // Enable counting by set CEI_BIT in TIMx_CR1 register.
 }
 
 /*
@@ -117,7 +130,7 @@ GPT_TimeIsElapsed GPT_CheckTimeIsElapsed(TIMx_Configue* Timer){
 	 */
 	if( ( (Timer->direction == GPT_Down_Counting) || (Counting_UpDown == GPT_Down_Counting ) ) && g_flag)
 	{
-		if (Timer->TIMx->TIMx_CNT == 1)
+		if (Timer->TIMx->TIMx_CNT == 0)
 		{
 			g_flag = 0; // clear g_flag
 			return GPT_Elapsed;

@@ -1,0 +1,63 @@
+/*
+ * ====================================================================================================================================
+ *  Project		: Vehicle Door Handle Control Unit
+ * 	File Name	: gpt.h
+ *	Team 		: 20
+ *	Members		: Abdelrahman Yasser - Omar Ahmed Anwar - Mo'men Mohamed - Neveen Mohamed
+ *  ===================================================================================================================================
+ */
+
+#ifndef GPT_H_
+#define GPT_H_
+
+/*---------------------- Includes -----------------------*/
+#include "Std_Types.h"
+#include "GPT_Private.h"
+#include "Bit_Operations.h"
+#include "Rcc.h"
+/*---------------------------------------------------------*/
+
+/*---------------------- Definitions -----------------------*/
+#define TIM2 ((TIMX_TYPE*)(TIM2_BASE_ADDRESS))
+#define TIM3 ((TIMX_TYPE*)(TIM3_BASE_ADDRESS))
+#define TIM4 ((TIMX_TYPE*)(TIM4_BASE_ADDRESS))
+#define TIM5 ((TIMX_TYPE*)(TIM5_BASE_ADDRESS))
+
+#define GPT_NUMBER_OF_TIMERS	1
+/*------------------------------------------------------------*/
+
+
+/*---------------------- Defined data Types -----------------------*/
+typedef enum{
+	GPT_Elapsed, GPT_NotElapsed
+}GPT_TimeIsElapsed;
+
+typedef enum
+{
+	GPT_Up_Counting, GPT_Down_Counting, GPT_Up_Down_Counting
+}CR1_CounterDirection;
+
+typedef struct{
+	TIMX_TYPE* TIMx;
+	uint16 prescaler;
+	CR1_CounterDirection direction;
+}TIMx_Configue;
+/*-----------------------------------------------------------------*/
+
+
+/*---------------------- Functions prototype -----------------------*/
+void RCC_TimersInit(TIMx_Configue* Timers, uint8 numOfTimers);
+
+void GPT_Init(TIMx_Configue* Timer);
+
+void GPT_StartTimer(TIMx_Configue* Timer,uint32 OverFlowTicks);
+
+GPT_TimeIsElapsed GPT_CheckTimeIsElapsed(TIMx_Configue* Timer);
+
+uint32 GPT_GetElapsedTime(TIMx_Configue* Timer);
+
+uint32 GPT_GetRemainingTime(TIMx_Configue* Timer);
+
+
+
+#endif /* GPT_H_ */
