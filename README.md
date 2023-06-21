@@ -66,7 +66,7 @@ of the following components:
   - Using a single variable to represent multiple flags in an embedded system can reduce memory usage and simplify code, while also allowing for 
     simultaneous operations on multiple flags. However, proper synchronization and access control must be ensured to avoid issues.
     
-  - ![bits](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/31c9d56f-ee91-4d47-b47b-f8ac923aef14)
+   ![bits](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/31c9d56f-ee91-4d47-b47b-f8ac923aef14)
    <br>
    
 - [x] **Allowed Using Interrupt with Door Button If Needed**:
