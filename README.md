@@ -68,6 +68,14 @@ of the following components:
     
   - ![bits](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/31c9d56f-ee91-4d47-b47b-f8ac923aef14)
    <br>
+   
+- [x] **Allowed Using Interrupt with Door Button If Needed**:
+  - The code checks the state of the button and calls a function if the button is pressed. However, the code is wrapped with an ifndef block, 
+    which suggests that an interrupt-based approach might be preferred over a polling-based approach and, Its benefits are:
+      1. It can reduce the CPU usage and power consumption of the system since the CPU doesn't need to continuously check the state of the button.
+      2. It can improve the responsiveness of the system since the function is called immediately when the button is pressed.
+      ![interrupt](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/1a36adbb-6c7d-4c8f-8f0a-43072e439a07)
+      ![interrupt2](https://github.com/omaranwar21/Vehicle-door-handle-CU/assets/94166833/e7b9839a-04a3-40e6-a090-2538b086b1bd)
 
 ***
 ### Project Structure
